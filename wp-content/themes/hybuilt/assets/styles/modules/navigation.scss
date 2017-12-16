@@ -1,0 +1,356 @@
+.main-header{
+  position:fixed;
+  width:100%;
+  left:0;
+  top:0;
+  height:54px;
+  z-index: 90;
+  background:white;
+
+  &:after{
+    content:"";
+    position: absolute;
+    height:2px;
+    width:100%;
+    bottom:-2px;
+    background:rgba(0,0,0,.15);
+  }
+
+  &__logo{
+    display: block;
+    width:86px;
+    margin:10px 0 0 15px;
+  }
+
+  &__hamburger{
+    position:absolute;
+    right:0;
+    top:0;
+    background:$bColor;
+    height:54px;
+    width:54px;
+
+    &--open-nav{
+      .hamburger-squares{
+        background:none;
+
+      }
+    }
+  }
+}
+
+// Fixed quick call us
+.call-us{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index: 90;
+  width:120px;
+  height:30px;
+
+  i{
+    position: absolute;
+    width:30px;
+    height:30px;
+    right:0;
+    top:0;
+    padding:8px;
+    background-color:white;
+    border-radius:50%;
+    box-shadow:0 0 6px rgba(0,0,0,.5);
+  }
+
+  p{
+    position: absolute;
+    right: 0px;
+    top: 0;
+    height:100%;
+    padding:0 40px 0 15px;
+    font-weight:400;
+    white-space: nowrap;
+    line-height: 2.9em;
+    background:rgba(255,255,255, 0.6);
+    border-radius:100px;
+    z-index: -1;
+    opacity:0;
+    transform: translateX(10px);
+    transition: all .25s ease-in-out;
+  }
+}
+
+.hamburger-squares{
+  position: absolute;
+  top:20px;
+  left:20px;
+  width:14px;
+  height:14px;
+
+  &__square{
+    position: absolute;
+    width:6px;
+    height:6px;
+    background:white;
+    // border:2px solid white;
+
+    &:nth-child(1){
+      top:0;
+      left:0;
+    }
+    &:nth-child(2){
+      top:0;
+      right:0;
+    }
+    &:nth-child(3){
+      bottom:0;
+      left:0;
+    }
+    &:nth-child(4){
+      bottom:0;
+      right:0;
+    }
+  }
+}
+
+.main-navigation{
+  display: none;
+  position: fixed;
+  width:100%;
+  height:100%;
+  top:54px;
+  left:0;
+  background:red;
+  z-index: 89;
+
+  &__link{
+    position: relative;
+    display: block;
+    height:calc(91% / 4);
+    padding-left:20px;
+  }
+
+}
+
+
+
+//------------------------ Product single page - sub nav
+
+.sub-nav{
+  position: absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding-left:12px;
+  // height:50px;
+  // display: inline-block;
+  // text-align: center;
+
+  a{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding:18px 8px;
+    // padding:28px 12px 26px 12px;
+    z-index: 2;
+  }
+
+  &:after{
+    content:"";
+    position: absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:110%;
+    z-index: 1;
+    opacity: 0.6;
+
+    /* Gradient BG */
+    background: -webkit-linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 12%, rgba(0,0,0,0.9) 68%);
+    background: -o-linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 12%, rgba(0,0,0,0.9) 68%);
+    background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 12%, rgba(0,0,0,0.9) 68%); /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+  }
+}
+
+
+
+//------------------------ Product single page - products & Prices toggle sizes
+.product-sizes-nav{
+  display: inline-block;
+  border:1px solid $bColor;
+  border-radius:100px;
+  text-align: center;
+  background:white;
+  z-index: 2;
+  margin-bottom:20px;
+
+  a{
+    float:left;
+    position: relative;
+    color:$bColor;
+    font-weight:600;
+    font-size: 14px;
+
+    &:nth-child(1){
+      padding:3px 18px 3px 20px;
+      border-right:1px solid $bColor;
+    }
+    &:nth-child(2){
+      padding:3px 20px 3px 14px;
+    }
+
+    &:after{
+      content:"";
+      position:absolute;
+      z-index: -1;
+      bottom:-10px;
+      width: 0;
+      height: 0;
+      left:50%;
+      right:50%;
+      margin-left:-12px;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+
+      border-top: 10px solid $bColor;
+
+      transform:translateY(-12px);
+    }
+  }
+}
+
+
+@include screen(medium){
+
+  .sub-nav{
+    text-align: center;
+    padding-left:0;
+
+    a{
+      padding:18px 12px;
+    }
+
+    &:after{
+      height:130%;
+    }
+
+
+
+    &--fixed{
+      position: fixed;
+      top:0;
+      height:76px;
+      background:white;
+      z-index: 89;
+
+      &:before{
+        content:"";
+        position:absolute;
+        bottom:-2px;
+        left:0;
+        width:100%;
+        height:2px;
+        background:rgba(0,0,0,.15);
+      }
+
+      a{
+        padding:25px 12px;
+        color:black;
+        text-shadow: none;
+
+        &:hover{
+          color:black;
+        }
+      }
+
+      &:after{
+        display: none;
+      }
+    }
+  }
+
+
+  .main-header{
+    height:76px;
+    width:250px;
+
+    &:after{
+      display: none;
+    }
+
+    &__logo{
+      width:114px;
+      margin:14px 0 0 100px;
+    }
+
+    &__hamburger{
+      left:0;
+      width:76px;
+      height:76px;
+    }
+
+    .hamburger-squares{
+      top:26px;
+      left:26px;
+      width:20px;
+      height:20px;
+
+      &__square{
+        width:8px;
+        height:8px;
+        background: none;
+        border:2px solid white;
+      }
+    }
+  }
+
+  .main-navigation{
+    top:0;
+
+    &__link{
+      height:50vh;
+
+      .text{
+        text-align:center;
+
+        h3{
+          word-spacing: 9999999px;
+          font-size:3.2em;
+        }
+      }
+    }
+  }
+
+
+  // Fixed quick call us
+  .call-us{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index: 90;
+    width:120px;
+    height:42px;
+
+    i{
+      width:42px;
+      height:42px;
+      padding:10px;
+    }
+
+    p{
+      height:100%;
+      padding:0 50px 0 15px;
+      line-height: 2.9em;
+      border-radius:100px;
+      font-size:15px;
+    }
+
+    &:hover{
+      p{
+        transform: translateX(0);
+        opacity:1;
+      }
+    }
+  }
+
+
+} // End of media queries

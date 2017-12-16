@@ -1,0 +1,28 @@
+.f-white{
+  color:white;
+}
+
+a.f-white{
+  &:hover{
+    color:white;
+  }
+}
+
+.f-shadow{
+  &--light{
+    text-shadow: 0 0 6px rgba(0,0,0,.4);
+  }
+  &--dark{
+    text-shadow: 0 0 8px rgba(0,0,0,.6);
+  }
+}
+
+.f-brand-blue{
+  color:$bColor;
+}
+
+
+
+.b-white{
+  background:white;
+}

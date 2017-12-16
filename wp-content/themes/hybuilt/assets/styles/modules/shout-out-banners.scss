@@ -1,0 +1,86 @@
+.price-beat{
+  position:absolute;
+  display: inline-block;
+  width:100%;
+  top:0;
+  left:0;
+  margin-top:54px;
+  padding:10px;
+  background:rgba(0,0,0,.7);
+  z-index: 2;
+  @include clearfix;
+
+
+  h4{
+    @include clearfix;
+    float:left;
+    padding:3px 6px;
+    background:white;
+    margin-right:8px;
+    font-size:12px;
+    font-weight: 600;
+    padding-top:4px;
+
+  }
+
+  p{
+    position: relative;
+    display: inline-block;
+    clear:both;
+    font-size: 14px;
+    margin-top:10px;
+    display: none;
+    @include clearfix;
+
+    // vertical-align: middle;
+  }
+
+  i.icon{
+    float:left;
+    width:19px;
+    height:19px;
+    background:red;
+    margin-right:6px;
+  }
+
+  button{
+    position: absolute;
+    display: block;
+    width:26px;
+    height:26px;
+    background:blue;
+    right:10px;
+    top:8px;
+  }
+
+  &--show-content{
+    p{
+      display: inline-block;
+
+    }
+  }
+
+}
+
+@include screen(medium){
+  .price-beat{
+    margin-top:0;
+    padding:10px 0 10px 270px;
+
+    h4{
+
+    }
+    p{
+      display: inline-block;
+      margin-top:3px;
+    }
+
+    i.icon{
+
+    }
+
+    button{
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+//------------------------ Website nav open
+body.main-navigation--open{
+  position: fixed;
+  overflow:hidden;
+
+  .main-header__hamburger{
+    background:pink;
+  }
+
+  .main-navigation{
+    display:block;
+  }
+}
+
+//------------------------ Product single page - products & Prices toggle sizes
+
+.products-prices__product{
+
+  &.opt1{
+    .products-prices__product__info__container{
+      &:nth-child(1){
+        display:block;
+      }
+    }
+    // Active link style
+    a:nth-child(1){
+      background:$bColor;
+      color:white;
+      border-radius:12px 0 0 12px;
+
+      &:after{
+        transform:translateY(0);
+      }
+    }
+
+  }
+
+  &.opt2{
+
+    .products-prices__product__info__container{
+      &:nth-child(2){
+        display:block;
+      }
+    }
+    // Active link style
+    a:nth-child(2){
+      background:$bColor;
+      color:white;
+      border-radius:0 12px 12px 0;
+
+      &:after{
+        transform:translateY(0);
+      }
+    }
+  }
+
+}

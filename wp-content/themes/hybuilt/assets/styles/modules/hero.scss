@@ -1,0 +1,54 @@
+.hero{
+  position: relative;
+  width:100%;
+  background:red;
+  height:77vh;
+  margin-top:54px;
+
+  .text{
+    position: relative;
+    top:50%;
+    transform:translateY(-50%);
+    max-width:400px;
+    margin:0 auto;
+    padding:0 20px;
+
+    h1{
+      margin-bottom:15px;
+      text-shadow: 0 0 8px rgba(0,0,0,.75);
+    }
+
+    p{
+      text-shadow: 0 0 4px rgba(0,0,0,.7);
+    }
+  }
+
+
+  &--full-screen{
+    // min-height:500px;
+  }
+}
+
+@include screen(medium){
+  .hero{
+    margin-top:0;
+
+    .text{
+      text-align: center;
+    }
+
+    &__scroll-section{
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      border:1px solid white;
+      margin: 20px auto 0 auto;
+    }
+
+    &--full-screen{
+      height:100vh;
+    }
+
+  }// Hero
+
+} // Medium media queries

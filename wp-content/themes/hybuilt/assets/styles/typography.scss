@@ -1,0 +1,204 @@
+body{
+  font-size: 62.5%;
+
+  @include screen(medium) {
+    font-size: 100%;
+  }
+}
+
+h1,h2,h3,h4,h5,p,a,li{
+  font-family: $bFont;
+}
+
+h1{
+  font-size:3em;
+
+  &.f-small{
+    font-size:3em;
+  }
+  &.f-medium{
+    font-size:3.4em;
+  }
+  &.f-large{
+    font-size:3.8em;
+  }
+}
+
+h2{
+  font-size:2.2em;
+  line-height: 1.4em;
+
+  &.f-small{
+    font-size:2em;
+  }
+  &.f-medium{
+    font-size:2.4em;
+  }
+  &.f-large{
+    font-size:2.8em;
+  }
+}
+
+h3{
+  font-size:1.6em;
+
+  &.f-small{
+    font-size:1.5em;
+  }
+
+  &.f-medium{
+    font-size:1.8em;
+  }
+  &.f-large{
+    font-size:2.2em;
+  }
+}
+
+h4{
+  font-size:1.8em;
+
+  &.f-small{
+
+  }
+  &.f-medium{
+
+  }
+  &.f-large{
+    font-size:2.2em;
+  }
+}
+
+h5{
+  &.f-small{
+
+  }
+  &.f-medium{
+
+  }
+  &.f-large{
+
+  }
+}
+
+p, a, li{
+  font-size:1.4em;
+  font-weight: 400;
+  line-height: 1.7em;
+  color:$tColor;
+
+  &.f-small{
+    font-size:1.25em;
+  }
+  &.f-medium{
+    font-size:1.6em;
+  }
+  &.f-large{
+    font-size:1.8em;
+  }
+}
+
+@include screen(medium){
+  h1{
+    &.f-small{
+      font-size:3em;
+    }
+    &.f-medium{
+      font-size:3.4em;
+    }
+    &.f-large{
+      font-size:4.2em;
+    }
+  }
+
+  h2{
+    .small{
+
+    }
+    .medium{
+
+    }
+    .large{
+
+    }
+  }
+
+  h3{
+    // font-size:1.6em;
+
+    &.f-small{
+      // font-size:1.5em;
+    }
+
+    &.f-medium{
+      // font-size:1.8em;
+    }
+    &.f-large{
+      font-size:2.8em;
+    }
+  }
+
+  h4{
+    font-size:1.4em;
+
+    .small{
+
+    }
+    .medium{
+
+    }
+    .large{
+
+    }
+  }
+
+  h5{
+    .small{
+
+    }
+    .medium{
+
+    }
+    .large{
+
+    }
+  }
+
+  p, a, li{
+    font-size:1em;
+
+    .small{
+
+    }
+    .medium{
+
+    }
+    .large{
+
+    }
+  }
+}
+
+.box-text{
+  display: inline-block;
+  padding:4px 6px 3px 6px;
+  font-size:12px;
+  font-weight:900;
+  background:white;
+  color:black;
+  margin-bottom:20px;
+
+  &--blue{
+    background:$bColor;
+    color:white;
+  }
+}
+
+.uppercase{
+  text-transform:uppercase;
+}
+.bold{
+  font-weight:400;
+}
+.boldest{
+  font-weight:900;
+}

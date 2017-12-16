@@ -1,0 +1,46 @@
+.footer{
+  background:darken($bColor, 10%);
+  padding-top:60px;
+
+  .logo{
+    max-width:160px;
+    margin:0 auto 40px;
+  }
+
+  &__links{
+    text-align: center;
+
+    a{
+      display: block;
+
+      i, p{
+        display: inline-block;
+      }
+      i{
+        width:24px;
+        height:24px;
+      }
+    }
+  }
+
+  &__copyright{
+    position: relative;
+    text-align: center;
+    margin:5% auto 0 auto;
+    padding:14px 0 14px 0;
+    color:darken($bColor,20%);
+    font-size:13px;
+
+    &:before{
+      content:"";
+      position: absolute;
+      width:20px;
+      height:1px;
+      top:0;
+      left:50%;
+      right:50%;
+      margin-left:-10px;
+      background:darken($bColor,20%);
+    }
+  }
+}
