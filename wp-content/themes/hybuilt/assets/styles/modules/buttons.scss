@@ -9,7 +9,6 @@
   i{
     width:44px;
     height:44px;
-    background:red;
     margin:10px auto 10px auto;
   }
 
@@ -18,5 +17,82 @@
     font-size: 11px;
     color:white;
     font-weight:500;
+  }
+}
+
+.btn{
+  float:left;
+  display: block;
+  padding:8px 28px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+
+  transition:all .25s ease-in-out;
+
+  p{
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  &--border{
+    border-radius:100px;
+
+    &-light{
+      background:rgba(0,0,0,.5);
+      border:1px solid white;
+      color:white;
+
+      p{
+        color:white;
+      }
+
+      &:hover{
+        background:$bColor;
+        // border-color:$bColor;
+        color:white;
+
+        p{
+          color:white;
+        }
+      }
+
+    }
+  }
+}
+
+.btn-arrow{
+  position:relative;
+
+  &:after, &:before{
+    content:"";
+    position:absolute;
+    width:16px;
+    height:1px;
+    background:white;
+  }
+
+  &--down{
+
+    &:after, &:before{
+      transform-origin: top left;
+      top:16px;
+      left:50%;
+      right:50%;
+      margin-left:-11px;
+    }
+
+    &:before{
+      transform: rotate(45deg);
+      transform-origin: top left;
+      // transform-origin: right bottom;
+    }
+
+    &:after{
+      transform: rotate(-45deg);
+      transform-origin: top right;
+      margin-left:-5px;
+      // transform-origin: left bottom;
+    }
   }
 }

@@ -1,16 +1,33 @@
 <?php /* Template Name: Concrete sleeper */ get_header();?>
 
+<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+
 <main role="main">
   <div class="website-container">
 
     <aside class="price-beat price-beat--hero">
-      <i class="icon"></i>
+      <i class="icon">
+        <svg version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+           <path fill="#ffffff" d="M39,97.2l58.2-58.8c0.3-0.3,0.5-0.7,0.5-1.1V3.9c0-0.9-0.7-1.6-1.6-1.6H62.7c-0.4,0-0.8,0.2-1.1,0.5L2.8,61
+          c-0.3,0.3-0.5,0.7-0.5,1.1c0,0,0,0,0,0c0,0.4,0.2,0.8,0.5,1.1l34,34c0.3,0.3,0.7,0.5,1.1,0.5C38.3,97.7,38.7,97.5,39,97.2z M68,24
+          c0-4.4,3.6-8,8-8c4.4,0,8,3.6,8,8c0,4.4-3.6,8-8,8C71.6,32,68,28.4,68,24z"/>
+        </svg>
+      </i>
       <h4>PRICE BEAT GUARANTEE</h4>
       <button class="price-beat__button">
-        <i></i>
+        <i>
+
+        </i>
       </button>
       <p class="f-white">Present a competitors quote and we will beat it.... guaranteed!</p>
     </aside>
+
+
+    <?php
+      $heroImageId = get_post_thumbnail_id();
+      $d_heroImage = wp_get_attachment_image_src($heroImageId, 'd_full-screen');
+      $m_heroImage = wp_get_attachment_image_src($heroImageId, 'm_full-screen');
+    ?>
 
     <section class="hero hero--full-screen">
 
@@ -18,191 +35,290 @@
         <h1 class="boldest f-white uppercase f-large"><?php the_title();?></h1>
         <p class="f-white f-medium">Concrete Precast Sleeper &  Retaining wall suppliers specialists</p>
 
-        <a href="#" data-scroll-nav="0" class="hero__scroll-section"></a>
+        <a href="#" data-scroll-nav="0" class="hero__scroll-section btn-arrow btn-arrow--down"><i></i></a>
       </div>
 
       <nav class="sub-nav">
         <?php if( wp_is_mobile() ){ ?>
           <a href="#" data-scroll-nav="0" class="f-white f-shadow--dark">Quality</a>
           <a href="#" data-scroll-nav="1" class="f-white f-shadow--dark">Delivery</a>
-          <a href="#" data-scroll-nav="2" class="f-white f-shadow--dark">Products & prices</a>
+          <a href="#" data-scroll-nav="2" class="f-white f-shadow--dark">Products & Prices</a>
         <?php }else{ ?>
           <a href="#" data-scroll-nav="0" class="f-white f-shadow--dark">Quality</a>
           <a href="#" data-scroll-nav="1" class="f-white f-shadow--dark">Delivery</a>
           <a href="#" data-scroll-nav="2" class="f-white f-shadow--dark">Installation</a>
-          <a href="#" data-scroll-nav="3" class="f-white f-shadow--dark">Products & prices</a>
+          <a href="#" data-scroll-nav="3" class="f-white f-shadow--dark">Products & Prices</a>
         <?php } ?>
       </nav><!-- /sub-nav -->
+
+      <?php if( wp_is_mobile() ){ ?>
+        <div class="hero__image cover" style="background-image:url('<?php echo $m_heroImage[0];?>')"></div>
+      <?php }else{ ?>
+        <div class="hero__image cover" style="background-image:url('<?php echo $d_heroImage[0];?>')"></div>
+      <?php } ?>
 
     </section><!-- // hero -->
 
     <section class="prd-content">
       <div class="prd-content__desc mobile-wrap lay-split">
-        <section data-scroll-index="0">
-          <h2 class="f-brand-blue bold">Premium quality steel products in Queensland</h2>
-          <span class="line"></span>
-          <p>The experts at HYBUILT know good steel. We specialise in supplying premium quality H and C steel to residential, commercial and industrial projects and developments. With over 15 years industry experience we’ve developed a reputation as Queensland’s trusted steel supplier. We pride ourselves on quality materials, expert customer service and fast turnaround times.</p>
+        <section>
+          <?php the_content();?>
         </section>
 
-        <section class="prd-content__desc__b-points">
-          <article class="prd-content__desc__b-points__point">
-            <i></i>
-            <div class="text">
-              <h3 class="f-brand-blue bold">Manufacturing</h3>
-              <p>HYBUILTS manufacturing process is the most efficient in the industry. This allows our continuous determination in lowering the cost of materials made possible across our clientele and customer base. HYBUILT Concrete sleepers are Certified by Registered Professional Engineers of Queensland (RPEQ). They are an Australian Manufactured Product meeting all Australian Building Standards.</p>
-            </div>
-          </article>
+        <?php if( have_rows('bptt_repeater') ): ?>
 
-          <article class="prd-content__desc__b-points__point">
-            <i></i>
-            <div class="text">
-              <h3 class="f-brand-blue bold">Delivery</h3>
-              <p>We’re Queensland’s most efficient internal crane truck door to door / site to site services. Depending on the order size HYBUILT can usually deliver your materials with 2-3 days after order confirmation. To efficiently carry out these duties HYBUILT operates an entire fleet of Crane Trucks in a variety of sizes to suit both Load size and/or potential access constraints</p>
-            </div>
-          </article>
+          <section class="prd-content__desc__b-points">
 
-          <article class="prd-content__desc__b-points__point">
-            <i></i>
-            <div class="text">
-              <h3 class="f-brand-blue bold">Warranty</h3>
-              <p>HYBUILT’s 30yr Guarantee is applicable to walls that have been constructed to our design and specifications. Should a wall fail due to materials tampering, negligence and/or incorrect installation methods the warranty is void. However should our products fail (without any external variables) we will replace them.</p>
-            </div>
-          </article>
+            <?php while( have_rows('bptt_repeater') ) : the_row();
+              $icon = get_sub_field('bptt__icon');
+              $anchor = get_sub_field('bptt__scroll-anchor');
+            ?>
 
-        </section><!-- //prd-content__desc__b-points -->
+              <article class="prd-content__desc__b-points__point" <?php if($anchor):?>data-scroll-index="<?php echo $anchor;?>"<?php endif;?>>
+                <i>
+                  <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
+                </i>
+                <div class="text">
+                  <h3><?php the_sub_field('bptt__title');?></h3>
+                  <?php the_sub_field('bptt__text');?>
+                </div>
+              </article>
+
+            <?php endwhile; ?>
+
+          </section><!-- //prd-content__desc__b-points -->
+        <?php endif; ?>
       </div><!-- //prd-content__desc -->
 
       <?php if(wp_is_mobile()){ ?>
 
       <?php }else{ ?>
         <div class="prd-content__image lay-split">
-
+            <!-- // Add fixed gallery hero -->
         </div>
       <?php } ?>
     </section><!-- //prd-content -->
 
     <section class="installation">
-      <div class="lay-split mobile-wrap installation__text">
-        <div class="text">
-          <p class="box-text uppercase">Installation</p>
-          <h3 class="f-white f-large">Residential & Commercial</h3>
-          <p class="f-white">Quisque ac imperdiet dui, quis consectetur enim. Fusce a finibus turpis. Etiam sed gravida libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque interdum justo id arcu tristique imperdiet. Fusce feugiat imperdiet libero, sit amet pharetra leo.</p>
-          <a href="<?php site_url();?>/contact" class="btn btn--border btn--border-light">Enquire</a>
+      <?php
+        $imageId = get_field('instal_text-bg-img');
+        $d_splitImage = wp_get_attachment_image_src($imageId, 'd_split-screen');
+        $m_fullScreenImage = wp_get_attachment_image_src($imageId, 'm_full-screen');
+
+        $gallery_imageId = get_field('instal_gallery-bg');
+        $gallery_d_splitImage = wp_get_attachment_image_src($gallery_imageId, 'd_split-screen');
+        $gallery_m_fullScreenImage = wp_get_attachment_image_src($gallery_imageId, 'm_full-screen');
+      ?>
+      <?php if(wp_is_mobile()){ ?>
+        <div class="lay-split mobile-wrap installation__text cover" style="background-image:url('<?php echo $m_fullScreenImage[0]; ?>');">
+      <?php }else{ ?>
+        <div class="lay-split mobile-wrap installation__text cover" style="background-image:url('<?php echo $d_splitImage[0]; ?>');">
+      <?php } ?>
+          <div class="text">
+            <p class="box-text uppercase">Installation</p>
+            <h3 class="f-white f-large bold"><?php the_field('instal_title');?></h3>
+            <?php the_field('instal_text');?>
+          </div>
         </div>
-      </div>
-      <div class="lay-split installation__image">
-        <a class="round-btn openGallery" href="<?php echo site_url();?>/concrete-sleepers/concrete-sleeper-gallery">
-          <i></i>
-          <p class="uppercase">View Gallery</p>
-        </a>
-      </div>
+
+      <?php if(wp_is_mobile()){ ?>
+        <div class="lay-split lay-split installation__image cover" style="background-image:url('<?php echo $gallery_m_fullScreenImage[0]; ?>');">
+      <?php }else{ ?>
+        <div class="lay-split lay-split installation__image cover" style="background-image:url('<?php echo $gallery_d_splitImage[0]; ?>');">
+      <?php } ?>
+          <a class="round-btn openGallery" href="<?php echo the_field('instal_gallery-link');?>">
+            <i>
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              	 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+              	<path fill="#ffffff" d="M81.5,3.3L4.8,3.4L4.7,80.2h76.8V3.3z M76.6,75.3h-67l0-8.2h67V75.3z M24.5,62.2l7.8-13.3l8.1,9.7
+              		c0.5,0.6,1.4,1,2.2,0.9c0.8-0.1,1.6-0.6,1.9-1.4l7.9-17.4l8.4,21.6H24.5z M76.6,62.2H66L54.8,33.4c-0.4-0.9-1.2-1.5-2.2-1.6
+              		c-1.1,0-1.9,0.5-2.3,1.4l-8.7,19.1l-7.8-9.4c-0.5-0.6-1.3-1-2.1-0.9c-0.8,0.1-1.5,0.5-1.9,1.2l-11,18.8H9.6l0.1-54l67-0.1V62.2z"/>
+              	<path fill="#ffffff" d="M85.8,29.3c-1.3-0.1-2.5,0.9-2.7,2.2c-0.1,1.3,0.9,2.5,2.2,2.7l5.8,0.5l-5.2,56.7l-59.1-5.4
+              		c-1.3-0.1-2.5,0.9-2.7,2.2c-0.1,1.3,0.9,2.5,2.2,2.7l64,5.8l6.1-66.5L85.8,29.3z"/>
+              	<path fill="#ffffff" d="M25.1,34.4c5,0,9-4,9-9s-4-9-9-9s-9,4-9,9S20.2,34.4,25.1,34.4z M25.1,21.4c2.3,0,4.1,1.8,4.1,4.1
+              		s-1.8,4.1-4.1,4.1S21,27.7,21,25.4S22.9,21.4,25.1,21.4z"/>
+              </svg>
+            </i>
+            <p class="uppercase">View Gallery</p>
+          </a>
+        </div>
     </section><!-- //installation -->
 
     <section class="products-prices" data-scroll-index="0">
       <div class="wrapper">
 
-        <h3 class="f-large">Products & Prices</h3>
+        <h3 class="f-large bold">Products & Prices</h3>
 
-        <section class="products-prices__concrete-sleepers">
-          <p class="box-text box-text--blue uppercase">Concrete Sleepers</p>
 
-          <div class="products-prices__container">
+        <?php if(have_rows('csp_repeater')): ?>
 
-            <article class="products-prices__product lay-split" itemscope itemtype="http://schema.org/Product">
-              <div class="image">
-                <img src="<?php echo get_template_directory_uri();?>" alt="Hybuilt Smooth Grey concrete sleepers" itemprop="image">
-              </div>
-              <header>
-                <h4 itemprop="name" class="f-large">Smooth Grey</h4>
-                <p itemprop="material">Steel 40mpa & N12 Reinforced</p>
-                <span class="line"></span>
-              </header>
+          <section class="products-prices__concrete-sleepers">
 
-              <div class="products-prices__product__info">
-                <span class="width" itemprop="width">1480mm</span><span
-                class="by">x</span><span
-                class="height" itemprop="height">200mm</span><span
-                class="by">x</span><span class="height" itemprop="depth">75mm</span><span
-                class="currency" itemprop="priceCurrency" content="AUD">$</span><span
-                class="price" itemprop="price" content="24.50">24.50</span><span class="each">ea</span>
-              </div>
-            </article>
+            <p class="box-text box-text--blue uppercase">Concrete Sleepers</p>
 
-            <article class="products-prices__product lay-split" itemscope itemtype="http://schema.org/Product">
-              <div class="image">
-                <img src="<?php echo get_template_directory_uri();?>" alt="Hybuilt Smooth Grey concrete sleepers" itemprop="image">
-              </div>
-              <header>
-                <h4 itemprop="name" class="f-large">Smooth Grey</h4>
-                <p itemprop="material">Steel 40mpa & N12 Reinforced</p>
-                <span class="line"></span>
-              </header>
+            <div class="products-prices__container">
 
-              <div class="products-prices__product__info">
-                <span class="width" itemprop="width">1480mm</span><span
-                class="by">x</span><span
-                class="height" itemprop="height">200mm</span><span
-                class="by">x</span><span class="height" itemprop="depth">75mm</span><span
-                class="currency" itemprop="priceCurrency" content="AUD">$</span><span
-                class="price" itemprop="price" content="24.50">24.50</span><span class="each">ea</span>
-              </div>
-            </article>
-          </div><!--  //products-prices__container --->
-        </section>
+              <?php while( have_rows('csp_repeater') ): the_row(); ?>
 
-        <section class="products-prices__retaining-walls">
-          <p class="box-text box-text--blue uppercase">Retaining Wall Posts and Beams</p>
+                <?php
+                  $csPrdIimage = get_sub_field('csp_cs_prd-image');
+                ?>
 
-          <div class="products-prices__container">
-            <article class="products-prices__product lay-split opt1" itemscope itemtype="http://schema.org/Product">
-              <div class="image">
-                <img src="<?php echo get_template_directory_uri();?>" alt="" itemprop="image">
-              </div>
-              <header>
-                <h4 itemprop="name" class="f-large">“H” POSTS</h4>
+                <article class="products-prices__product" itemscope itemtype="http://schema.org/Product">
+                  <div class="image">
+                    <img src="<?php echo $csPrdIimage['url'];?>" alt="<?php echo $csPrdIimage['alt'];?>" title="<?php echo $csPrdIimage['title'];?>" itemprop="image">
+                  </div>
+                  <div class="products-prices__product__info">
+                    <header>
+                      <h4 itemprop="name" class="f-large"><?php the_sub_field('csp_cs_prd-name');?></h4>
+                      <p itemprop="material"><?php the_sub_field('csp_cs_prd-sub-title');?></p>
+                      <hr class="thin s-margin">
+                    </header>
 
-                <p class="avail-in">Available in:</p>
+                    <ul>
+                      <?php while( have_rows('csp_csr') ): the_row(); ?>
+                        <li>
+                          <span class="width" itemprop="width"><?php the_sub_field('csp_cs_prd-width');?>mm</span><span
+                          class="by">x</span><span
+                          class="height" itemprop="height"><?php the_sub_field('csp_cs_prd-height');?>mm</span><span
+                          class="by">x</span><span class="height" itemprop="depth"><?php the_sub_field('csp_cs_prd-depth');?>mm</span><span
+                          class="currency" itemprop="priceCurrency" content="AUD">$</span><span
+                          class="price" itemprop="price" content="<?php the_sub_field('csp_cs_prd-price');?>"><?php the_sub_field('csp_cs_prd-price');?></span><span class="each">ea</span>
+                        </li>
+                      <?php endwhile; ?>
+                    </ul>
 
-              </header>
+                  </div>
+                </article>
 
-              <nav class="product-sizes-nav">
-                <a href="#0" class="product-sizes-nav__option-btn--1">100UC</a>
-                <a href="#0" class="product-sizes-nav__option-btn--2">150UC</a>
-              </nav>
+              <?php endwhile; ?>
 
-              <div class="products-prices__product__info">
+            </div><!--  //products-prices__container --->
 
-                <div class="products-prices__product__info__container">
-                  <article>
-                    <span class="width" itemprop="width">0.8m</span><span
-                    class="currency" itemprop="priceCurrency" content="AUD">$</span><span
-                    class="price" itemprop="price" content="28.80">28.80</span>
+          </section>
+
+        <?php endif; ?>
+
+
+        <?php if( have_rows('csp_b-p-repeater') ): ?>
+
+          <section class="products-prices__retaining-walls">
+
+            <p class="box-text box-text--blue uppercase">Retaining Wall Posts and Beams</p>
+
+            <div class="products-prices__container">
+
+              <?php $counter = -1; ?>
+
+              <?php while( have_rows('csp_b-p-repeater') ): the_row(); $counter++;?>
+
+                <?php
+                  $cspbPrdIimage = get_sub_field('csp_b-p_image');
+                  $opt2 = get_sub_field('prd-opt2_opt-title');
+                ?>
+
+                <?php if ($counter % 2 == 0) { ?>
+                  <div class="wrap">
+                <?php } ?>
+
+                  <article class="products-prices__product lay-split opt1" itemscope itemtype="http://schema.org/Product">
+                    <div class="image">
+                      <img src="<?php echo $cspbPrdIimage['url'];?>" alt="<?php echo $cspbPrdIimage['alt'];?>" title="<?php echo $csPrdIimage['title'];?>" itemprop="image">
+                    </div>
+                    <header>
+                      <h4 itemprop="name" class="f-large"><?php the_sub_field('csp_b-p_title');?></h4>
+
+                      <?php if($opt2){ ?>
+                        <p class="avail-in">Available in:</p>
+                      <?php }else{ ?>
+                        <p><?php the_sub_field('prd-opt1_opt-sub-title');?></p>
+                      <?php } ?>
+
+                    </header>
+
+                    <?php if($opt2): ?>
+                      <nav class="product-sizes-nav">
+                        <a href="#0" class="product-sizes-nav__option-btn--1"><?php the_sub_field('prd-opt1_opt-title');?></a>
+                        <a href="#0" class="product-sizes-nav__option-btn--2"><?php the_sub_field('prd-opt2_opt-title');?></a>
+                      </nav>
+                    <?php endif; ?>
+
+                    <div class="products-prices__product__info">
+
+                      <?php if( have_rows('prd-opt1-repeater') ):?>
+
+                        <?php $priceCounter = -1; ?>
+
+                        <div class="products-prices__product__info__container">
+
+                          <?php while( have_rows('prd-opt1-repeater') ): the_row(); $priceCounter++;?>
+
+                            <?php if ($priceCounter % 8 == 0): ?>
+                              <span class="price-wrap">
+                            <?php endif; ?>
+
+                              <article>
+                                <span class="width" itemprop="width"><?php the_sub_field('opt-1_prd-size');?>m</span><span
+                                class="currency" itemprop="priceCurrency" content="AUD">$</span><span
+                                class="price" itemprop="price" content="<?php the_sub_field('opt-1_prd-price');?>"><?php the_sub_field('opt-1_prd-price');?></span>
+                              </article>
+
+                            <?php if ($priceCounter % 8 == 7): ?>
+                              </span>
+                            <?php endif; ?>
+
+                          <?php endwhile; ?>
+
+
+                          <p><?php the_sub_field('prd-opt1_opt-end-para');?></p>
+
+                        </div><!-- //option1 -->
+
+                      <?php endif; ?>
+
+                      <?php if($opt2): ?>
+                        <?php if( have_rows('prd-opt2-repeater') ):?>
+
+                          <div class="products-prices__product__info__container">
+
+                            <?php while( have_rows('prd-opt2-repeater') ): the_row(); $priceCounter++;?>
+
+                              <?php if ($priceCounter % 8 == 0) { ?>
+                                <span class="price-wrap">
+                              <?php } ?>
+
+                                  <article>
+                                    <span class="width" itemprop="width"><?php the_sub_field('opt-2_prd-size');?>m</span><span
+                                    class="currency" itemprop="priceCurrency" content="AUD">$</span><span
+                                    class="price" itemprop="price" content="<?php the_sub_field('opt-2_prd-price');?>"><?php the_sub_field('opt-2_prd-price');?></span>
+                                  </article>
+
+                              <?php if ($priceCounter % 8 == 7) { ?>
+                              </span>
+                              <?php } ?>
+
+                            <?php endwhile; ?>
+
+                          </div><!-- //option2 -->
+
+                      <?php endif; endif; ?>
+
+                    </div><!-- /products-prices__product__info -->
+
                   </article>
-                  <article>
-                    <span class="width" itemprop="width">1.0m</span><span
-                    class="currency" itemprop="priceCurrency" content="AUD">$</span><span
-                    class="price" itemprop="price" content="28.80">28.80</span>
-                  </article>
-                </div><!-- //option1 -->
 
-                <div class="products-prices__product__info__container">
-                  <article>
-                    <span class="width" itemprop="width">0.8m</span><span
-                    class="currency" itemprop="priceCurrency" content="AUD">$</span><span
-                    class="price" itemprop="price" content="28.80">28.80</span>
-                  </article>
-                  <article>
-                    <span class="width" itemprop="width">1m</span><span
-                    class="currency" itemprop="priceCurrency" content="AUD">$</span><span
-                    class="price" itemprop="price" content="28.80">28.80</span>
-                  </article>
-                </div><!-- //option2 -->
+                  <?php if ($counter % 2 == 1) { ?>
+                  </div><!-- /wrap -->
+                <?php }?>
 
-              </div>
-            </article>
-          </div><!--  //products-prices__container --->
 
-        </section>
+
+              <?php endwhile; ?>
+
+            </div><!--  //products-prices__container --->
+          </section>
+
+        <?php endif; ?>
       </div><!-- //wrapper -->
     </section>
 
@@ -211,17 +327,17 @@
       <div class="wrap">
         <div class="lay-split">
           <div class="text">
-            <h2 class="f-medium f-white">How can we help?</h2>
+            <h2 class="f-medium f-white boldest">How can we help?</h2>
             <p class="f-medium f-white">More information about our sleeper and steel supplies? or Get a quick quote for your project?</p>
           </div>
         </div>
 
         <div class="lay-split product-contact__contact-details">
-          <h4>Contact details:</h4>
+          <h4 class="f-white bold">Contact details:</h4>
 
-          <a href="tel:<?php the_field("hybuilt-main-tel-no", "option");?>">
+          <a href="tel:<?php the_field("hybuilt-main-tel-no", "option");?>" class="icon-text">
             <i>
-              <svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+              <svg version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
       					<path fill="#ffffff" d="M76.9,97.8c-3.3,0-6.7-0.9-9.6-2.9C42.8,78.7,21.3,57.2,5,32.7c-4.5-6.9-3.6-16,2.2-21.9l5.5-5.5
       						c4.9-4.9,13-4.9,17.9,0l10,10c4.9,4.9,4.9,13,0,17.9l-1.3,1.3c7.9,9.3,16.8,18.3,26.1,26.1l1.3-1.3c2.4-2.4,5.6-3.7,8.9-3.7
       						c3.4,0,6.6,1.3,8.9,3.7l10,10c4.9,4.9,4.9,13,0,17.9l-5.5,5.5C85.8,96.1,81.4,97.8,76.9,97.8z M21.7,8.1c-1.6,0-3.2,0.6-4.4,1.8
@@ -233,16 +349,14 @@
             <p class="f-white"><?php the_field("hybuilt-main-tel-no", "option");?></p>
           </a>
 
-          <a href="mailto:<?php the_field("hybuilt-main-email", "option");?>">
+          <a href="mailto:<?php the_field("hybuilt-main-email", "option");?>" class="icon-text">
             <i>
-              <svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-      					<path fill="#ffffff" d="M76.9,97.8c-3.3,0-6.7-0.9-9.6-2.9C42.8,78.7,21.3,57.2,5,32.7c-4.5-6.9-3.6-16,2.2-21.9l5.5-5.5
-      						c4.9-4.9,13-4.9,17.9,0l10,10c4.9,4.9,4.9,13,0,17.9l-1.3,1.3c7.9,9.3,16.8,18.3,26.1,26.1l1.3-1.3c2.4-2.4,5.6-3.7,8.9-3.7
-      						c3.4,0,6.6,1.3,8.9,3.7l10,10c4.9,4.9,4.9,13,0,17.9l-5.5,5.5C85.8,96.1,81.4,97.8,76.9,97.8z M21.7,8.1c-1.6,0-3.2,0.6-4.4,1.8
-      						l-5.5,5.5c-3.7,3.7-4.2,9.5-1.4,13.8C26.1,53,47,73.9,70.8,89.6c4.3,2.9,10.1,2.3,13.8-1.4l5.5-5.5c2.4-2.4,2.4-6.4,0-8.8l-10-10
-      						c-2.4-2.4-6.5-2.4-8.8,0L68,67.2c-1.2,1.2-3,1.3-4.3,0.2c-11.2-9.2-22-19.9-31.1-31.1c-1-1.3-1-3.1,0.2-4.3l3.3-3.3
-      						c2.4-2.4,2.4-6.4,0-8.8l-10-10C24.9,8.7,23.3,8.1,21.7,8.1z"/>
-      				</svg>
+              <svg version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+              <path fill="#ffffff" d="M87.5,15.9h-75c-7,0-11.9,4.9-11.9,11.9v44.3c0,6.8,5,11.9,11.6,11.9h75.3c6.6,0,11.9-5.4,11.9-11.9V27.8
+              	C99.5,20.8,94.5,15.9,87.5,15.9z M87.1,22.7L51.6,50.8L13.3,22.7H87.1z M92.6,72.2c0,2.9-2.2,5.1-5.1,5.1H12.2
+              	c-2.8,0-4.8-2.2-4.8-5.1V27.8c0-0.3,0-0.7,0.1-1l42.3,31c0.6,0.4,1.3,0.7,2,0.7c0.7,0,1.5-0.2,2.1-0.7l38.8-30.7
+              	c0,0.3,0.1,0.5,0.1,0.8V72.2z"/>
+              </svg>
             </i>
             <p class="f-white"><?php the_field("hybuilt-main-email", "option");?></p>
           </a>
@@ -253,5 +367,7 @@
 
   </div><!-- //website-container -->
 </main><!-- //main  -->
+
+<?php endwhile; endif; ?>
 
 <?php get_footer();?>

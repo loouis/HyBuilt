@@ -27,13 +27,20 @@ if (function_exists('add_theme_support'))
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
-    add_image_size('large', 700, '', true); // Large Thumbnail
-    add_image_size('medium', 250, '', true); // Medium Thumbnail
-    add_image_size('small', 120, '', true); // Small Thumbnail
-    add_image_size('agent_portrait', 500, 888, true); // Agent portrait image
-    add_image_size('d_hero', 1800, 1013, true); // Desktop hero
-    add_image_size('map_image', 1200, 1000, true); // Desktop hero
-    add_image_size('square', 800, 800, true); // Desktop hero
+
+      // Mobile
+      add_image_size('m_full-screen', 660, 1013, true);
+      add_image_size('m_full-half', 660, 740, true);
+      add_image_size('m_full-quarter', 660, 420, true);
+
+      // Desktop
+      add_image_size('d_full-screen', 1800, 1013, true);
+      add_image_size('d_split-screen', 900, 1013, true);
+      add_image_size('d_quarter-quarter', 900, 508, true);
+
+      // Both screen sizes
+      add_image_size('b_product-prices', 460, 460, true);
+      add_image_size('b_sq-thumbnail', 240, 240, true);
 
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
