@@ -4,7 +4,32 @@ body.main-navigation--open{
   overflow:hidden;
 
   .main-header__hamburger{
-    background:pink;
+
+    .hamburger-lines{
+
+      &__line{
+
+        &:nth-child(1){
+          transform-origin: center;
+          transform:rotate(-45deg) !important;
+          top:6px;
+        }
+        &:nth-child(2){
+          transform-origin: center;
+          transform:rotate(45deg) !important;
+          top:6px;
+        }
+
+        @include screen(medium){
+          &:nth-child(1){
+            top:15px;
+          }
+          &:nth-child(2){
+            top:15px;
+          }
+        }
+      }
+    }
   }
 
   .main-navigation{

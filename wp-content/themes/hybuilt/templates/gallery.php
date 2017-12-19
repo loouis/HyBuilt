@@ -59,44 +59,46 @@
       </a>
     </nav>
 
-    <h1><?php the_title();?></h1>
-    
-    <ul class="bxslider gallery">
-      <li class="g1 cover"></li>
-      <li class="g2 cover"></li>
-      <li class="g3 cover"></li>
-      <li class="g4 cover"></li>
-    </ul>
-  </div>
+      <ul class="bxslider gallery">
+          <?php while(have_rows('img_repeater')): the_row();?>
 
-  <div id="bx-pager">
-    <a data-slide-index="0" href="#0"><img src="../../assets/images/gthumb-red-bull-masters-01.jpg" /></a>
-    <a data-slide-index="1" href="#0"><img src="../../assets/images/gthumb-red-bull-masters-02.jpg" /></a>
-    <a data-slide-index="2" href="#0"><img src="../../assets/images/gthumb-red-bull-masters-03.jpg" /></a>
-    <a data-slide-index="3" href="#0"><img src="../../assets/images/gthumb-red-bull-masters-04.jpg" /></a>
+            <?php
+              $imageId = get_sub_field('img_repeater_image');
+              $m_galleryImage = wp_get_attachment_image_src($imageId, 'm_full-quarter');
+              $d_galleryImage = wp_get_attachment_image_src($imageId, 'd_full-screen');
+            ?>
+
+          <li>
+            <?php if(wp_is_mobile()){ ?>
+              <img src="<?php echo $m_galleryImage[0] ?>" alt="">
+            <?php }else{ ?>
+              <img src="<?php echo $d_galleryImage[0] ?>" alt="">
+            <?php } ?>
+          </li>
+        <?php endwhile; ?>
+      </ul>
   </div>
 
 <script>
   (function($){
 
-    var mySlider = $('.bxslider'),
-        MySliderNextBtn = $(".gallery-slider-nav__btn--next");
+    var mySlider = $('.bxslider');
+
+
+    $(".gallery-slider-nav__btn--next").click(function(event) {
+      event.preventDefault();
+      mySlider.goToNextSlide();
+    });
+
+    $(".gallery-slider-nav__btn--prev").click(function(event) {
+      event.preventDefault();
+      mySlider.goToPrevSlide();
+    });
 
     // BX Slider
     mySlider.bxSlider({
       controls: false,
-      pagerCustom: '#bx-pager',
       startSlide: 0,
-    });
-
-    $('.gallery-slider-nav__btn').click(function(event) {
-      event.preventDefault();
-
-      if( $(this).hasClass(MySliderNextBtn) ){
-        mySlider.goToNextSlide();
-      }else{
-        mySlider.goToPrevSlide();
-      }
     });
 
   })(jQuery);

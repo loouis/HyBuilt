@@ -23,15 +23,14 @@
 
 			<a href="<?php echo home_url(); ?>" class="main-header__logo">
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="HyBuilt Logo">
+				<p>HOME</p>
 			</a>
 
 			<button tabindex="0" class="main-header__hamburger">
 
-				<div class="hamburger-squares">
-					<span class="hamburger-squares__square"></span>
-					<span class="hamburger-squares__square"></span>
-					<span class="hamburger-squares__square"></span>
-					<span class="hamburger-squares__square"></span>
+				<div class="hamburger-lines">
+					<span class="hamburger-lines__line"></span>
+					<span class="hamburger-lines__line"></span>
 				</div>
 
 			</button>

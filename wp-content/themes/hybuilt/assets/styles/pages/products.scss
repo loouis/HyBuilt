@@ -32,6 +32,66 @@
           float:left;
           padding-left:45px;
 
+          a{
+            float:left;
+            display: block;
+            padding:8px 28px;
+            margin:30px 0 30px 0;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.03em;
+            border-radius:100px;
+            font-weight: bold;
+            background:none;
+            border:1px solid rgba(15,115,148,.4);
+            color:$bColor;
+
+            transition:all .25s ease-in-out;
+
+            &:hover{
+              background:$bColor;
+              color:white;
+            }
+          }
+
+          strong{
+            display: inline-block;
+            background:$bColor;
+            color:white;
+            text-transform: uppercase;
+            padding:1px 8px 0 8px;
+            font-weight: bold;
+            font-size: 14px;
+            margin:30px 0 10px;
+          }
+
+          .delivering-to{
+            margin-top:20px;
+            margin-bottom:40px;
+
+            & > p{
+              margin-bottom:10px;
+            }
+
+            ul > li{
+              position: relative;
+              color:$bColor;
+              font-weight:bold;
+              padding-left:25px;
+              margin-bottom:5px;
+
+              &:before{
+                content:"";
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 100 100' enable-background='new 0 0 100 100' xml:space='preserve'%3E%3Cpath fill='%230F7394' d='M50,0.8C30.1,0.8,13.9,17,13.9,36.9c0,16.6,11.1,30.8,27,34.9L48.4,98c0.2,0.7,0.8,1.2,1.6,1.2 s1.4-0.5,1.6-1.2l7.5-26.2c16-4.1,27-18.3,27-34.9C86.1,17,69.9,0.8,50,0.8z M50,59.5c-12.5,0-22.7-10.2-22.7-22.7 S37.5,14.2,50,14.2c12.5,0,22.7,10.2,22.7,22.7S62.5,59.5,50,59.5z'/%3E%3C/svg%3E%0A");
+                position:absolute;
+                left:0;
+                height:16px;
+                width:16px;
+                top:4px;
+              }
+            }
+          }
+
 
           h3{
             margin-top:10px;
@@ -43,7 +103,7 @@
           &:after{
             content:"";
             position:absolute;
-            height:120%;
+            height:115%;
             width:1px;
             background:$bColor;
             top:0;
@@ -57,7 +117,17 @@
   }
 
   &__image{
+    display: none;
+  }
+}
 
+body.page-id-8{
+  .prd-content__image__slider__pager{
+    a{
+      p{
+        margin-top:22px;
+      }
+    }
   }
 }
 
@@ -115,6 +185,20 @@
     position: relative;
     @include clearfix;
   }
+
+  &__concrete-sleepers{
+    .products-prices__product__info{
+      span.price, span.currency,span.each{
+        font-weight:500;
+      }
+      span.currency{
+        &:before{
+          top:13px;
+        }
+      }
+    }
+  }
+
   .wrapper{
     max-width:900px;
     margin:0 auto;
@@ -132,20 +216,43 @@
     .price-wrap{
       @include clearfix;
       float:left;
-      width:120px;
+      width:130px;
     }
   }
 
   &__retaining-walls{
-    margin-top:60px;
+    margin-top:40px;
 
     .products-prices__product__info span.width{
       width: 32px;
       text-align: right;
     }
 
+    .products-prices__container{
+      .wrap{
+        &:last-child{
+          border:0;
+        }
+      }
+    }
+
+    .products-prices__product--5{
+      .products-prices__product__info__container{
+        .price-wrap{
+          width:auto;
+
+          span.width{
+            width:auto;
+            font-weight:500;
+            color:black;
+          }
+        }
+      }
+    }
 
     .products-prices__product__info__container{
+      @include clearfix;
+
       article{
         margin-bottom:8px;
       }
@@ -157,15 +264,35 @@
     border-bottom:1px solid #EDEDED;
     padding:40px 0;
 
+    header{
+      h4{
+        margin-bottom:15px;
+      }
+
+      p{
+        margin-bottom:20px;
+
+        &.material{
+          margin-bottom:0;
+        }
+
+        &.avail-in{
+          color:#B9B9B9;
+          margin-bottom:5px;
+        }
+      }
+    }
+
     .image{
-      width:100px;
-      height:100px;
+      width:180px;
+      height:180px;
       border-radius:50%;
-      margin-bottom:20px;
+      margin-bottom:26px;
       overflow: hidden;
     }
 
     &__info{
+
 
       header{
         h4{
@@ -173,10 +300,6 @@
         }
         p{
           color:black;
-
-          &.avail-in{
-            color:#B9B9B9;
-          }
         }
 
         .line{
@@ -187,19 +310,38 @@
 
       &__container{
         display: none;
+
+        &__end-para{
+          float:left;
+          width:74%;
+          margin-top:20px;
+          line-height:1.4em;
+          font-size:14px;
+        }
       }
 
       span{
         display:inline-block;
         font-family:$bFont;
         color:$tColor;
-        font-size: 14px;
+        font-size: 15px;
 
         &.by{
           margin:0 2px;
         }
         &.currency{
-          margin-left:6px;
+          position: relative;
+          margin-left:16px;
+
+          &:before{
+            content:"";
+            position:absolute;
+            width:5px;
+            height:1px;
+            background:#6B6B6B;
+            top:7px;
+            left:-11px;
+          }
         }
         &.each{
           margin-left:3px;
@@ -212,7 +354,6 @@
   }
 
 }
-
 
 .product-contact{
   padding:80px 30px;
@@ -228,6 +369,12 @@
 
     h2{
       margin-bottom:15px;
+      font-weight: bold;
+      color:white;
+    }
+    p{
+      color:white;
+      font-size:1.5em;
     }
   }
 
@@ -319,7 +466,6 @@
     &__image{
       float:left;
       height:100%;
-      background:red;
     }
 
     &__text{
@@ -378,8 +524,90 @@
     }
 
     &__image{
+      display: block;
       height:100vh;
-      background:blue;
+
+      .text{
+        position:relative;
+        color:white;
+        top:50%;
+        padding:0 15%;
+        transform:translateY(-50%);
+
+        p{
+          color:white;
+        }
+
+        h1{
+          font-weight:bold;
+          text-transform: uppercase;
+          margin-bottom:10px;
+        }
+      }
+
+      &__slider{
+        position: relative;
+        width: 100%;
+        height: 100vh;
+
+        &__slide{
+          width: 100%;
+          height: 100vh;
+        }
+      }
+
+      &__slider__pager{
+        @include clearfix;
+        position: absolute;
+        height:auto;
+        left:-30px;
+        top:50%;
+        width:100px;
+        z-index: 2;
+        transform:translateY(-40%);
+
+        a{
+          @include clearfix;
+          position: relative;
+          width:180px;
+          background:rgba(255,255,255,0.6);
+          border-radius:100px;
+          margin-bottom:5px;
+
+          &.active{
+            background:white;
+
+            transition: all .25s ease-in-out;
+
+            p{
+              color:$bColor;
+            }
+          }
+
+          .image{
+            float:left;
+            width:60px;
+            height:60px;
+            border-radius:50%;
+            border:10px solid white;
+            overflow: hidden;
+          }
+
+          p{
+            display: block;
+            position: relative;
+            float:left;
+            padding-left:10px;
+            text-transform:uppercase;
+            font-weight:bold;
+            margin-top:15px;
+            color:white;
+            font-size:13px;
+            width:98px;
+            line-height: 1.2em;
+          }
+        }
+      }
     }
   }
 }

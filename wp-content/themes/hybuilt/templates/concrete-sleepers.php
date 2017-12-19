@@ -1,26 +1,27 @@
-<?php /* Template Name: Concrete sleeper */ get_header();?>
+<?php /* Template Name: Products */ get_header();?>
 
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 <main role="main">
   <div class="website-container">
 
-    <aside class="price-beat price-beat--hero">
-      <i class="icon">
-        <svg version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-           <path fill="#ffffff" d="M39,97.2l58.2-58.8c0.3-0.3,0.5-0.7,0.5-1.1V3.9c0-0.9-0.7-1.6-1.6-1.6H62.7c-0.4,0-0.8,0.2-1.1,0.5L2.8,61
-          c-0.3,0.3-0.5,0.7-0.5,1.1c0,0,0,0,0,0c0,0.4,0.2,0.8,0.5,1.1l34,34c0.3,0.3,0.7,0.5,1.1,0.5C38.3,97.7,38.7,97.5,39,97.2z M68,24
-          c0-4.4,3.6-8,8-8c4.4,0,8,3.6,8,8c0,4.4-3.6,8-8,8C71.6,32,68,28.4,68,24z"/>
-        </svg>
-      </i>
-      <h4>PRICE BEAT GUARANTEE</h4>
-      <button class="price-beat__button">
-        <i>
-
+    <?php if(is_page('6')){ ?>
+      <aside class="price-beat price-beat--hero">
+        <i class="icon">
+          <svg version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+             <path fill="#ffffff" d="M39,97.2l58.2-58.8c0.3-0.3,0.5-0.7,0.5-1.1V3.9c0-0.9-0.7-1.6-1.6-1.6H62.7c-0.4,0-0.8,0.2-1.1,0.5L2.8,61
+            c-0.3,0.3-0.5,0.7-0.5,1.1c0,0,0,0,0,0c0,0.4,0.2,0.8,0.5,1.1l34,34c0.3,0.3,0.7,0.5,1.1,0.5C38.3,97.7,38.7,97.5,39,97.2z M68,24
+            c0-4.4,3.6-8,8-8c4.4,0,8,3.6,8,8c0,4.4-3.6,8-8,8C71.6,32,68,28.4,68,24z"/>
+          </svg>
         </i>
-      </button>
-      <p class="f-white">Present a competitors quote and we will beat it.... guaranteed!</p>
-    </aside>
+        <h4>PRICE BEAT GUARANTEE</h4>
+        <button class="price-beat__button btn-arrow btn-arrow--down"><i></i></button>
+        <p class="f-white">Present a competitors quote and we will beat it.... guaranteed!</p>
+      </aside>
+    <?php }else{ ?>
+
+    <?php } ?>
+
 
 
     <?php
@@ -33,21 +34,21 @@
 
       <div class="text">
         <h1 class="boldest f-white uppercase f-large"><?php the_title();?></h1>
-        <p class="f-white f-medium">Concrete Precast Sleeper &  Retaining wall suppliers specialists</p>
+        <p class="f-white f-medium"><?php the_excerpt();?></p>
 
-        <a href="#" data-scroll-nav="0" class="hero__scroll-section btn-arrow btn-arrow--down"><i></i></a>
+        <a href="#" data-scroll-nav="1" class="hero__scroll-section btn-arrow btn-arrow--down"><i></i></a>
       </div>
 
       <nav class="sub-nav">
         <?php if( wp_is_mobile() ){ ?>
-          <a href="#" data-scroll-nav="0" class="f-white f-shadow--dark">Quality</a>
-          <a href="#" data-scroll-nav="1" class="f-white f-shadow--dark">Delivery</a>
-          <a href="#" data-scroll-nav="2" class="f-white f-shadow--dark">Products & Prices</a>
+          <a href="#" data-scroll-goto="1" class="f-white f-shadow--dark">Quality</a>
+          <a href="#" data-scroll-goto="2" class="f-white f-shadow--dark">Delivery</a>
+          <a href="#" data-scroll-goto="4" class="f-white f-shadow--dark">Products & Prices</a>
         <?php }else{ ?>
-          <a href="#" data-scroll-nav="0" class="f-white f-shadow--dark">Quality</a>
-          <a href="#" data-scroll-nav="1" class="f-white f-shadow--dark">Delivery</a>
-          <a href="#" data-scroll-nav="2" class="f-white f-shadow--dark">Installation</a>
-          <a href="#" data-scroll-nav="3" class="f-white f-shadow--dark">Products & Prices</a>
+          <a href="#" data-scroll-goto="1" class="f-white f-shadow--dark">Quality</a>
+          <a href="#" data-scroll-goto="2" class="f-white f-shadow--dark">Delivery</a>
+          <a href="#" data-scroll-goto="3" class="f-white f-shadow--dark">Installation</a>
+          <a href="#" data-scroll-goto="4" class="f-white f-shadow--dark">Products & Prices</a>
         <?php } ?>
       </nav><!-- /sub-nav -->
 
@@ -61,7 +62,7 @@
 
     <section class="prd-content">
       <div class="prd-content__desc mobile-wrap lay-split">
-        <section>
+        <section data-scroll-index="1">
           <?php the_content();?>
         </section>
 
@@ -93,13 +94,72 @@
       <?php if(wp_is_mobile()){ ?>
 
       <?php }else{ ?>
-        <div class="prd-content__image lay-split">
-            <!-- // Add fixed gallery hero -->
-        </div>
+        <?php
+          $count = count(get_field("ssi_repeater"));
+        ?>
+
+        <?php if($count > 1 ){ ?>
+
+          <div class="prd-content__image lay-split">
+
+            <div class="prd-content__image__slider">
+              <div class="bx-slider">
+
+                <?php while( have_rows('ssi_repeater') ): the_row();?>
+
+                  <?php
+                    $ssiId = get_sub_field('ssi_images');
+                    $d_ssi_image = wp_get_attachment_image_src($ssiId, 'd_split-screen');
+                  ?>
+
+                  <div class="prd-content__image__slider__slide cover" style="background-image: url('<?php echo $d_ssi_image[0];?>')"></div>
+
+                <?php endwhile; ?>
+
+              </div><!-- /bxslider -->
+
+              <div class="prd-content__image__slider__pager">
+                <?php $counter = -1; ?>
+                <?php while( have_rows('ssi_repeater') ): the_row(); $counter++ ?>
+
+                  <?php
+                    $ssiId = get_sub_field('ssi_images');
+                    $d_ssi_image = wp_get_attachment_image_src($ssiId, 'b_sq-thumbnail');
+                  ?>
+
+                  <a href="#0" data-slide-index="<?php echo $counter; ?>">
+                    <div class="image">
+                      <img src="<?php echo $d_ssi_image[0];?>" alt="">
+                    </div>
+                    <p><?php the_sub_field('ssi_name');?></p>
+                  </a>
+                <?php endwhile; ?>
+
+              </div><!-- /prd-content__image__slider__pager -->
+
+            </div><!-- /prd-content__image__slider -->
+          </div>
+
+          <?php }else{ ?>
+
+            <?php while( have_rows('ssi_repeater') ): the_row();?>
+
+              <?php
+                $ssiId = get_sub_field('ssi_images');
+                $d_ssi_image = wp_get_attachment_image_src($ssiId, 'd_split-screen');
+              ?>
+
+            <div class="prd-content__image lay-split" style="background-image: url('<?php echo $d_ssi_image[0];?>')"></div><!-- /prd-content__image -->
+
+          <?php endwhile; ?>
+
+          <?php } ?>
+
+
       <?php } ?>
     </section><!-- //prd-content -->
 
-    <section class="installation">
+    <section class="installation" data-scroll-index="3">
       <?php
         $imageId = get_field('instal_text-bg-img');
         $d_splitImage = wp_get_attachment_image_src($imageId, 'd_split-screen');
@@ -144,7 +204,7 @@
         </div>
     </section><!-- //installation -->
 
-    <section class="products-prices" data-scroll-index="0">
+    <section class="products-prices" data-scroll-index="4">
       <div class="wrapper">
 
         <h3 class="f-large bold">Products & Prices</h3>
@@ -154,7 +214,7 @@
 
           <section class="products-prices__concrete-sleepers">
 
-            <p class="box-text box-text--blue uppercase">Concrete Sleepers</p>
+            <p class="box-text box-text--blue uppercase"><?php the_field('csp_sub-title');?></p>
 
             <div class="products-prices__container">
 
@@ -170,8 +230,8 @@
                   </div>
                   <div class="products-prices__product__info">
                     <header>
-                      <h4 itemprop="name" class="f-large"><?php the_sub_field('csp_cs_prd-name');?></h4>
-                      <p itemprop="material"><?php the_sub_field('csp_cs_prd-sub-title');?></p>
+                      <h4 itemprop="name" class="f-large bold"><?php the_sub_field('csp_cs_prd-name');?></h4>
+                      <p class="material" itemprop="material"><?php the_sub_field('csp_cs_prd-sub-title');?></p>
                       <hr class="thin s-margin">
                     </header>
 
@@ -221,12 +281,12 @@
                   <div class="wrap">
                 <?php } ?>
 
-                  <article class="products-prices__product lay-split opt1" itemscope itemtype="http://schema.org/Product">
+                  <article class="products-prices__product lay-split opt1 products-prices__product--<?php echo $counter;?>" itemscope itemtype="http://schema.org/Product">
                     <div class="image">
                       <img src="<?php echo $cspbPrdIimage['url'];?>" alt="<?php echo $cspbPrdIimage['alt'];?>" title="<?php echo $csPrdIimage['title'];?>" itemprop="image">
                     </div>
                     <header>
-                      <h4 itemprop="name" class="f-large"><?php the_sub_field('csp_b-p_title');?></h4>
+                      <h4 itemprop="name" class="f-medium bold"><?php the_sub_field('csp_b-p_title');?></h4>
 
                       <?php if($opt2){ ?>
                         <p class="avail-in">Available in:</p>
@@ -251,26 +311,33 @@
 
                         <div class="products-prices__product__info__container">
 
-                          <?php while( have_rows('prd-opt1-repeater') ): the_row(); $priceCounter++;?>
+                          <div>
+                            <?php while( have_rows('prd-opt1-repeater') ): the_row(); $priceCounter++;?>
 
-                            <?php if ($priceCounter % 8 == 0): ?>
-                              <span class="price-wrap">
-                            <?php endif; ?>
+                              <?php
+                                $price = get_sub_field('opt-1_prd-price');
+                              ?>
 
-                              <article>
-                                <span class="width" itemprop="width"><?php the_sub_field('opt-1_prd-size');?>m</span><span
-                                class="currency" itemprop="priceCurrency" content="AUD">$</span><span
-                                class="price" itemprop="price" content="<?php the_sub_field('opt-1_prd-price');?>"><?php the_sub_field('opt-1_prd-price');?></span>
-                              </article>
+                              <?php if ($priceCounter % 8 == 0): ?>
+                                <span class="price-wrap">
+                              <?php endif; ?>
 
-                            <?php if ($priceCounter % 8 == 7): ?>
-                              </span>
-                            <?php endif; ?>
+                                <article>
+                                  <span class="width" itemprop="width"><?php the_sub_field('opt-1_prd-size');?></span>
 
-                          <?php endwhile; ?>
+                                  <?php if($price):?>
+                                    <span class="currency bold" itemprop="priceCurrency" content="AUD">$</span><span class="price bold" itemprop="price" content="<?php the_sub_field('opt-1_prd-price');?>"><?php the_sub_field('opt-1_prd-price');?></span>
+                                  <?php endif; ?>
+                                </article>
 
+                              <?php if ($priceCounter % 8 == 7): ?>
+                                </span>
+                              <?php endif; ?>
 
-                          <p><?php the_sub_field('prd-opt1_opt-end-para');?></p>
+                            <?php endwhile; ?>
+                          </div>
+
+                          <p class="products-prices__product__info__container__end-para"><?php the_sub_field('prd-opt1_opt-end-para');?></p>
 
                         </div><!-- //option1 -->
 
@@ -283,14 +350,20 @@
 
                             <?php while( have_rows('prd-opt2-repeater') ): the_row(); $priceCounter++;?>
 
+                              <?php
+                                $price = get_sub_field('opt-2_prd-price');
+                              ?>
+
                               <?php if ($priceCounter % 8 == 0) { ?>
                                 <span class="price-wrap">
                               <?php } ?>
 
                                   <article>
-                                    <span class="width" itemprop="width"><?php the_sub_field('opt-2_prd-size');?>m</span><span
-                                    class="currency" itemprop="priceCurrency" content="AUD">$</span><span
-                                    class="price" itemprop="price" content="<?php the_sub_field('opt-2_prd-price');?>"><?php the_sub_field('opt-2_prd-price');?></span>
+                                    <span class="width" itemprop="width"><?php the_sub_field('opt-2_prd-size');?></span>
+
+                                    <?php if($price):?>
+                                      <span class="currency" itemprop="priceCurrency" content="AUD">$</span><span class="price" itemprop="price" content="<?php the_sub_field('opt-2_prd-price');?>"><?php the_sub_field('opt-2_prd-price');?></span>
+                                    <?php endif; ?>
                                   </article>
 
                               <?php if ($priceCounter % 8 == 7) { ?>
@@ -311,8 +384,6 @@
                   </div><!-- /wrap -->
                 <?php }?>
 
-
-
               <?php endwhile; ?>
 
             </div><!--  //products-prices__container --->
@@ -322,13 +393,24 @@
       </div><!-- //wrapper -->
     </section>
 
+    <?php wp_reset_postdata(); ?>
 
-    <section class="product-contact">
+
+    <?php
+      $contact_id = get_field('hcwh_image');
+      $m_contact_image = wp_get_attachment_image_src($contact_id, 'm_full-screen');
+      $d_contact_image = wp_get_attachment_image_src($contact_id, 'd_full-screen');
+    ?>
+
+    <?php if(wp_is_mobile()){ ?>
+      <div class="product-contact cover" style="background-image:url('<?php echo $m_contact_image[0]; ?>');">
+    <?php }else{ ?>
+      <div class="product-contact cover" style="background-image:url('<?php echo $d_contact_image[0]; ?>');">
+    <?php } ?>
       <div class="wrap">
         <div class="lay-split">
           <div class="text">
-            <h2 class="f-medium f-white boldest">How can we help?</h2>
-            <p class="f-medium f-white">More information about our sleeper and steel supplies? or Get a quick quote for your project?</p>
+            <?php the_field('hcwh_text');?>
           </div>
         </div>
 

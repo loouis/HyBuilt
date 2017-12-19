@@ -12,6 +12,7 @@ h1,h2,h3,h4,h5,p,a,li{
 
 h1{
   font-size:3em;
+  line-height: 0.9em;
 
   &.f-small{
     font-size:3em;
@@ -20,13 +21,13 @@ h1{
     font-size:3.4em;
   }
   &.f-large{
-    font-size:3.8em;
+    font-size:2.8em;
   }
 }
 
 h2{
-  font-size:2.2em;
-  line-height: 1.4em;
+  font-size:2.4em;
+  line-height: 1.2em;
 
   &.f-small{
     font-size:2em;
@@ -41,6 +42,7 @@ h2{
 
 h3{
   font-size:1.6em;
+  line-height: 1em;
 
   &.f-small{
     font-size:1.5em;
@@ -61,7 +63,7 @@ h4{
 
   }
   &.f-medium{
-
+    font-size:2em;
   }
   &.f-large{
     font-size:2.2em;
@@ -99,6 +101,8 @@ p, a, li{
 
 @include screen(medium){
   h1{
+    font-size:4em;
+
     &.f-small{
       font-size:3em;
     }
@@ -140,13 +144,13 @@ p, a, li{
   h4{
     font-size:1.4em;
 
-    .small{
+    &.f-small{
 
     }
-    .medium{
-
+    &.f-medium{
+      font-size:1.7em;
     }
-    .large{
+    &.f-large{
 
     }
   }
@@ -165,14 +169,15 @@ p, a, li{
 
   p, a, li{
     font-size:1em;
+    line-height: 1.6em;
 
-    .small{
-
-    }
-    .medium{
+    &.f-small{
 
     }
-    .large{
+    &.f-medium{
+      line-height: 1.3em;
+    }
+    &.f-large{
 
     }
   }
@@ -180,8 +185,8 @@ p, a, li{
 
 .box-text{
   display: inline-block;
-  padding:4px 6px 3px 6px;
-  font-size:12px;
+  padding:4px 10px 3px 10px;
+  font-size:13px;
   font-weight:900;
   background:white;
   color:black;

@@ -1,0 +1,111 @@
+.page-template-contact{
+  .call-us{
+    display: none;
+  }
+}
+
+.contact-details{
+  margin-top:40px;
+
+  .icon-text{
+    i svg path{
+      fill:$bColor;
+    }
+    p{
+      color:$bColor;
+      font-weight: 400;
+    }
+  }
+}
+
+.split-content{
+  .wrap{
+    margin-top:100px;
+
+    section{
+      padding:0 10% 0 8%;
+    }
+  }
+}
+
+.contact-form{
+  background:#F3F3F3;
+  padding-top:60px;
+  padding-bottom:90px;
+  margin-top:60px;
+
+  section{
+    .wrap{
+      margin-top:0;
+      width:100%;
+    }
+
+    .form-selection{
+      margin:20px 0;
+
+      h4{
+        color:$bColor;
+        margin-bottom:15px;
+        font-size: 18px;
+      }
+
+      .form-radio{
+        display: block;
+        width:100%;
+
+        span{
+          // display: block;
+          width:100%;
+          margin-left:0;
+
+          label{
+            display: block;
+            span{
+              margin-left:24px;
+            }
+          }
+
+          input{
+            margin-top:6px;
+            width:auto;
+            float:left;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@include screen(medium){
+  .split-content{
+
+    .contact-form{
+      section{
+        .wrap{
+          width:80%;
+        }
+      }
+    }
+
+    &__google-maps{
+      position: fixed;
+      right:0;
+      top:0;
+      z-index: -1;
+      height:100vh;
+      background:#F7F7F7;
+
+      iframe{
+        width: 100%; height: 100%;
+      }
+    }
+    .wrap{
+      margin-top:120px;
+
+      section{
+        padding:0 20% 0 16%;
+      }
+    }
+  }
+}

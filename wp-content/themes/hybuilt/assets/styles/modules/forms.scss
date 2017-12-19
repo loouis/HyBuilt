@@ -1,0 +1,33 @@
+input, textarea{
+  background:white;
+  border:none;
+  outline:0;
+  padding:12px;
+  font-family: $bFont;
+  font-size: 15px;
+  width:100%;
+  margin-top:15px;
+}
+
+input[type="submit"]{
+
+  background:$bColor;
+  color:white;
+  padding:10px 26px;
+  font-weight: bold;
+  font-size:14px;
+  margin-top:25px;
+}
+
+textarea{
+  resize: vertical;
+  height:160px;
+}
+
+
+@include screen(medium){
+  input[type="submit"]{
+    width:auto;
+    float:left;
+  }
+}

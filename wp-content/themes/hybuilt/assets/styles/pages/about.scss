@@ -1,0 +1,55 @@
+body.page-template-about-us{
+  .prd-content__desc{
+    margin-top:40px;
+
+    @include screen(medium){
+      margin-top:60px;
+    }
+  }
+}
+
+.our-services{
+  header{
+    padding:5% 0 3% 0;
+
+    h2{
+      text-align: center;
+      color:$bColor;
+    }
+  }
+}
+
+.lay-split--our-services{
+  position:relative;
+  height:60vh;
+  min-height: 600px;
+
+  &:nth-of-type(1){
+    .text{
+      right:0;
+      text-align: right;
+      margin-right:7%;
+    }
+  }
+
+  &:nth-of-type(2){
+    .text{
+      left:0;
+      text-align: left;
+      margin-left:7%;
+    }
+  }
+
+  .image{
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+  }
+
+  .text{
+    position: absolute;
+    top:50%;
+    transform:translateY(-50%);
+  }
+}

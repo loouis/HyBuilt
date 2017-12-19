@@ -21,6 +21,16 @@
 	    });
 	  };
 
+		//BxSlider
+		var mySlider = $('.bx-slider');
+
+    // BX Slider
+    mySlider.bxSlider({
+      controls: false,
+      pagerCustom: '.prd-content__image__slider__pager',
+      startSlide: 0,
+    });
+
 
 		// Magnific Popup
 	  var win = $(window),
@@ -69,11 +79,11 @@
 		    // Sticky Kit
 		    productSticky();
 
-				$.scrollIt({
-					topOffset: -120,
-				});
-
 		  }else{}
+		});
+
+		$.scrollIt({
+			topOffset: -120,
 		});
 
 		// Wow

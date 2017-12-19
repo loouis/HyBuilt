@@ -7,7 +7,7 @@
 				</div>
 
 				<div class="footer__links">
-					<a href="#0" class="icon-text">
+					<a href="https://www.google.com.au/maps/place/10+Hiley+St,+Slacks+Creek+QLD+4127/@-27.6248321,153.1238963,17z/data=!3m1!4b1!4m5!3m4!1s0x6b9143998a11265d:0x8a569c48b03041a1!8m2!3d-27.6248321!4d153.126085" target="_blank" class="icon-text">
             <i>
 							<svg version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
 								<path fill="#ffffff" d="M50,0.8C30.1,0.8,13.9,17,13.9,36.9c0,16.6,11.1,30.8,27,34.9L48.4,98c0.2,0.7,0.8,1.2,1.6,1.2
@@ -67,38 +67,30 @@
 
 
 		<nav class="main-navigation" role="navigation">
-			<a href="<?php echo site_url();?>/concrete-sleepers" class="lay-split main-navigation__link">
+
+			<?php while( have_rows('nav_repeater', 'option') ): the_row(); ?>
+
+			<?php
+				$navId = get_sub_field('nav_image', 'option');
+				$m_navImage = wp_get_attachment_image_src($navId, 'm_full-quarter');
+				$d_navImage = wp_get_attachment_image_src($navId, 'd_quarter-quarter');
+				$navLink = get_sub_field('nav_link', 'option');
+			?>
+
+			<?php if( wp_is_mobile() ){ ?>
+				<a href="<?php echo $navLink;?>" class="lay-split main-navigation__link cover" style="background-image:url('<?php echo $m_navImage[0]; ?>')">
+			<?php }else{ ?>
+				<a href="<?php echo $navLink;?>" class="lay-split main-navigation__link cover" style="background-image:url('<?php echo $d_navImage[0]; ?>')">
+			<?php } ?>
+
 				<div class="text">
-					<h3 class="boldest uppercase f-white f-large">Concrete Sleepers</h3>
+					<h3 class="boldest uppercase f-white f-large f-shadow--dark"><?php the_sub_field('nav_link-name', 'option');?></h3>
 				</div>
-				<div class="image">
-					<img src="" alt="">
-				</div>
+
 			</a>
-			<a href="<?php echo site_url();?>/concrete-sleepers" class="lay-split main-navigation__link">
-				<div class="text">
-					<h3 class="boldest uppercase f-white f-large">Sandstone</h3>
-				</div>
-				<div class="image">
-					<img src="" alt="">
-				</div>
-			</a>
-			<a href="<?php echo site_url();?>/concrete-sleepers" class="lay-split main-navigation__link">
-				<div class="text">
-					<h3 class="boldest uppercase f-white f-large">About</h3>
-				</div>
-				<div class="image">
-					<img src="" alt="">
-				</div>
-			</a>
-			<a href="<?php echo site_url();?>/concrete-sleepers" class="lay-split main-navigation__link">
-				<div class="text">
-					<h3 class="boldest uppercase f-white f-large">Contact</h3>
-				</div>
-				<div class="image">
-					<img src="" alt="">
-				</div>
-			</a>
+
+			<?php endwhile; ?>
+
 		</nav>
 
 		<script>

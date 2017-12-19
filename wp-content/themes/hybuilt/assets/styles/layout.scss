@@ -27,6 +27,10 @@ hr{
 
 .website-container{
   @include clearfix;
+
+  &--home{
+    margin-top:54px;
+  }
 }
 
 .mobile-wrap{
@@ -61,6 +65,12 @@ hr{
   .lay-split{
     width:50%;
     float:left;
+  }
+
+  .website-container{
+    &--home{
+      margin-top:0;
+    }
   }
 
 }

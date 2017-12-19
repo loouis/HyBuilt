@@ -6,28 +6,29 @@ get_header(); ?>
 
 <main role="main">
 
-  <div class="website-container">
+  <div class="website-container website-container--home">
 
-    <?php
-      $posts = get_field('relationship_links');
-      if( $posts ): ?>
+    <a href="<?php echo site_url();?>/concrete-sleepers" class="lay-split lay-split--homepage">
+      <div class="text">
+        <h1 class="uppercase f-white f-large boldest f-shadow--dark">Concrete Sleepers</h1>
+      </div>
+      <?php if( wp_is_mobile() ){ ?>
+        <div class="image cover" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/images/m_homepage-concrete-sleeper.jpg')"></div>
+      <?php }else{ ?>
+        <div class="image cover" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/images/d_homepage-concrete-sleeper.jpg')"></div>
+      <?php } ?>
+    </a>
 
-        <?php foreach( $posts as $post):?>
-          <?php setup_postdata($post); ?>
-
-            <a href="<?php the_permalink();?>" class="lay-split lay-split--homepage">
-            <div class="text">
-              <h1 class="uppercase f-white f-large boldest"><?php the_title();?></h1>
-              <p class="f-white t-align-r"><?php the_excerpt();?></p>
-            </div>
-            <div class="image">
-              <img src="<?php echo get_template_directory_uri();?>" alt="<?php bloginfo('name'); ?> - <?php the_title();?>">
-            </div>
-          </a>
-          <?php endforeach; ?>
-        <?php wp_reset_postdata();?>
-
-      <?php endif; ?>
+    <a href="<?php echo site_url();?>/sandstone" class="lay-split lay-split--homepage">
+      <div class="text">
+        <h1 class="uppercase f-white f-large boldest f-shadow--dark">Sandstone</h1>
+      </div>
+      <?php if( wp_is_mobile() ){ ?>
+        <div class="image cover" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/images/m_homepage-sandstone.jpg')"></div>
+      <?php }else{ ?>
+        <div class="image cover" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/images/d_homepage-sandstone.jpg')"></div>
+      <?php } ?>
+    </a>
 
   </div><!-- //website-container -->
 
