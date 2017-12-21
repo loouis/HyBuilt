@@ -47,6 +47,16 @@
 		"opt": 0,
 		"q": 100
 		},
+	"\/assets\/images\/b_product-prices-drainage-aggregate.jpg": {
+		"ft": 16384,
+		"iS": 104983,
+		"oA": 0,
+		"oAP": "\/assets\/images\/b_product-prices-drainage-aggregate.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
 	"\/assets\/images\/concrete-sleepers-d_full-screen.jpg": {
 		"ft": 16384,
 		"iS": 295159,
@@ -237,6 +247,16 @@
 		"oIPL": 0,
 		"opt": 0,
 		"oT": 1,
+		"q": 100
+		},
+	"\/assets\/images\/logo-blue.jpg": {
+		"ft": 16384,
+		"iS": 35276,
+		"oA": 0,
+		"oAP": "\/assets\/images\/logo-blue.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
 		"q": 100
 		},
 	"\/assets\/images\/logo-white.png": {

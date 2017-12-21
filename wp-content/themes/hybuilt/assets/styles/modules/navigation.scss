@@ -18,8 +18,8 @@
 
   &__logo{
     display: block;
-    width:86px;
-    margin:10px 0 0 15px;
+    width:110px;
+    margin:10px 0 0 10px;
 
     img, p{
       transition: opacity .25s ease-in-out;
@@ -340,15 +340,15 @@
 
   .main-header{
     height:76px;
-    width:250px;
+    width:266px;
 
     &:after{
       display: none;
     }
 
     &__logo{
-      width:114px;
-      margin:14px 0 0 100px;
+      width:152px;
+      margin:13px 0 0 95px;
     }
 
     &__hamburger{

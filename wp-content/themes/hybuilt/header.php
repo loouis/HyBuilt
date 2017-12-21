@@ -22,7 +22,8 @@
 		<header class="main-header clear" role="banner">
 
 			<a href="<?php echo home_url(); ?>" class="main-header__logo">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="HyBuilt Logo">
+				<?php $headerLogo = get_field('hybuilt_logo_blue', 'option');?>
+				<img src="<?php echo $headerLogo['url'];?>" alt="<?php echo $headerLogo['alt'];?>">
 				<p>HOME</p>
 			</a>
 
