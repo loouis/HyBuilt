@@ -8,15 +8,15 @@
     <section class="split-content">
       <div class="wrap lay-split">
 
-        <section>
+        <section class="wow fadeIn">
           <?php the_content();?>
         </section>
 
-        <section class="contact-details">
+        <section class="contact-details wow fadeIn">
 
           <p class="box-text box-text--blue uppercase">Contact details</p>
 
-          <a href="<?php the_field('hybuilt_google_maps_link');?>" target="_blank" class="icon-text">
+          <a href="<?php the_field('hybuilt_google_maps_link', 'option');?>" target="_blank" class="icon-text">
             <i>
 							<svg version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
 								<path fill="#ffffff" d="M50,0.8C30.1,0.8,13.9,17,13.9,36.9c0,16.6,11.1,30.8,27,34.9L48.4,98c0.2,0.7,0.8,1.2,1.6,1.2
@@ -60,9 +60,10 @@
             <p><?php the_field("hybuilt-main-tel-no", "option");?></p>
           </a>
         </section>
+      </div><!-- //prd-content__desc -->
 
-
-        <div class="contact-form">
+      <div class="split-content__contact-form lay-split cover wow fadeIn">
+        <div class="contact-form wow fadeIn">
           <section>
             <p class="box-text box-text--blue uppercase">Contact form</p>
             <div class="wrap">
@@ -71,10 +72,6 @@
             </div>
           </section>
         </div>
-      </div><!-- //prd-content__desc -->
-
-      <div class="prd-content__image split-content__google-maps lay-split cover">
-        <?php the_field('hybuilt_google_maps_embed', 'option');?>
       </div>
 
     </section><!-- //prd-content -->

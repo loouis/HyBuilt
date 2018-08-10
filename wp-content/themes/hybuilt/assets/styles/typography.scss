@@ -12,7 +12,7 @@ h1,h2,h3,h4,h5,p,a,li{
 
 h1{
   font-size:3em;
-  line-height: 0.9em;
+  line-height: 1em;
 
   &.f-small{
     font-size:3em;
@@ -21,12 +21,12 @@ h1{
     font-size:3.4em;
   }
   &.f-large{
-    font-size:2.8em;
+    font-size:3.2em;
   }
 }
 
 h2{
-  font-size:2.4em;
+  font-size:2.8em;
   line-height: 1.2em;
 
   &.f-small{
@@ -41,7 +41,8 @@ h2{
 }
 
 h3{
-  font-size:1.6em;
+  font-size:2.4em;
+  font-weight:600;
   line-height: 1em;
 
   &.f-small{
@@ -83,7 +84,7 @@ h5{
 }
 
 p, a, li{
-  font-size:1.4em;
+  font-size:1.7em;
   font-weight: 400;
   line-height: 1.7em;
   color:$tColor;
@@ -92,7 +93,8 @@ p, a, li{
     font-size:1.25em;
   }
   &.f-medium{
-    font-size:1.6em;
+    font-size:2.1em;
+    line-height: 1.4em;
   }
   &.f-large{
     font-size:1.8em;
@@ -127,7 +129,7 @@ p, a, li{
   }
 
   h3{
-    // font-size:1.6em;
+    font-size:1.5em;
 
     &.f-small{
       // font-size:1.5em;
@@ -168,7 +170,7 @@ p, a, li{
   }
 
   p, a, li{
-    font-size:1em;
+    font-size:1.05em;
     line-height: 1.6em;
 
     &.f-small{

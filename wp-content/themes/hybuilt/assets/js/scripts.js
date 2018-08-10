@@ -31,6 +31,14 @@
       startSlide: 0,
     });
 
+    // WOW
+
+      wow = new WOW({
+        mobile: true, 
+      });
+      wow.init();
+
+
 
 		// Magnific Popup
 	  var win = $(window),

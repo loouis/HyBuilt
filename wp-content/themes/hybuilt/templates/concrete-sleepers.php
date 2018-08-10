@@ -16,12 +16,11 @@
         </i>
         <h4>PRICE BEAT GUARANTEE</h4>
         <button class="price-beat__button btn-arrow btn-arrow--down"><i></i></button>
-        <p class="f-white">Present a competitors quote and we will beat it.... guaranteed!</p>
+        <p class="f-white">Present a competitors quote and we will beat it… guaranteed! T&amp;C's apply</p>
       </aside>
     <?php }else{ ?>
 
     <?php } ?>
-
 
 
     <?php
@@ -33,36 +32,36 @@
     <section class="hero hero--full-screen">
 
       <div class="text">
-        <h1 class="boldest f-white uppercase f-large"><?php the_title();?></h1>
-        <p class="f-white f-medium"><?php the_excerpt();?></p>
+        <h1 class="boldest f-white uppercase f-large wow slideInUp" data-wow-delay=".2s"><?php the_title();?></h1>
+        <p class="f-white f-medium wow slideInUp" data-wow-delay=".4s"><?php the_excerpt();?></p>
 
-        <a href="#" data-scroll-nav="1" class="hero__scroll-section btn-arrow btn-arrow--down"><i></i></a>
+        <a href="#" data-scroll-nav="1" class="hero__scroll-section btn-arrow btn-arrow--down wow slideInUp" data-wow-delay=".6s"><i></i></a>
       </div>
 
       <nav class="sub-nav">
         <?php if( wp_is_mobile() ){ ?>
-          <a href="#" data-scroll-goto="1" class="f-white f-shadow--dark">Quality</a>
-          <a href="#" data-scroll-goto="2" class="f-white f-shadow--dark">Delivery</a>
-          <a href="#" data-scroll-goto="4" class="f-white f-shadow--dark">Products & Prices</a>
+          <a href="#" data-scroll-goto="1" class="f-white f-shadow--dark wow fadeIn" data-wow-delay=".6s">Quality</a>
+          <a href="#" data-scroll-goto="2" class="f-white f-shadow--dark wow fadeIn" data-wow-delay=".7s">Delivery</a>
+          <a href="#" data-scroll-goto="4" class="f-white f-shadow--dark wow fadeIn" data-wow-delay=".8s">Products & Prices</a>
         <?php }else{ ?>
-          <a href="#" data-scroll-goto="1" class="f-white f-shadow--dark">Quality</a>
-          <a href="#" data-scroll-goto="2" class="f-white f-shadow--dark">Delivery</a>
-          <a href="#" data-scroll-goto="3" class="f-white f-shadow--dark">Installation</a>
-          <a href="#" data-scroll-goto="4" class="f-white f-shadow--dark">Products & Prices</a>
+          <a href="#" data-scroll-goto="1" class="f-white f-shadow--dark wow fadeIn" data-wow-delay=".6s">Quality</a>
+          <a href="#" data-scroll-goto="2" class="f-white f-shadow--dark wow fadeIn" data-wow-delay=".7s">Delivery</a>
+          <a href="#" data-scroll-goto="3" class="f-white f-shadow--dark wow fadeIn" data-wow-delay=".8s">Installation</a>
+          <a href="#" data-scroll-goto="4" class="f-white f-shadow--dark wow fadeIn" data-wow-delay=".9s">Products & Prices</a>
         <?php } ?>
       </nav><!-- /sub-nav -->
 
       <?php if( wp_is_mobile() ){ ?>
-        <div class="hero__image cover" style="background-image:url('<?php echo $m_heroImage[0];?>')"></div>
+        <div class="hero__image cover wow imgScaleIn" style="background-image:url('<?php echo $m_heroImage[0];?>')"></div>
       <?php }else{ ?>
-        <div class="hero__image cover" style="background-image:url('<?php echo $d_heroImage[0];?>')"></div>
+        <div class="hero__image cover wow imgScaleIn" style="background-image:url('<?php echo $d_heroImage[0];?>')"></div>
       <?php } ?>
 
     </section><!-- // hero -->
 
     <section class="prd-content">
       <div class="prd-content__desc mobile-wrap lay-split">
-        <section data-scroll-index="1">
+        <section class="wow fadeIn" data-scroll-index="1">
           <?php the_content();?>
         </section>
 
@@ -75,7 +74,7 @@
               $anchor = get_sub_field('bptt__scroll-anchor');
             ?>
 
-              <article class="prd-content__desc__b-points__point" <?php if($anchor):?>data-scroll-index="<?php echo $anchor;?>"<?php endif;?>>
+              <article class="prd-content__desc__b-points__point wow fadeIn" data-wow-delay=".3s" <?php if($anchor):?>data-scroll-index="<?php echo $anchor;?>"<?php endif;?>>
                 <i>
                   <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
                 </i>
@@ -159,7 +158,7 @@
       <?php } ?>
     </section><!-- //prd-content -->
 
-    <section class="installation" data-scroll-index="3">
+    <section class="installation wow fadeIn" data-scroll-index="3">
       <?php
         $imageId = get_field('instal_text-bg-img');
         $d_splitImage = wp_get_attachment_image_src($imageId, 'd_split-screen');
@@ -177,7 +176,9 @@
           <div class="text">
             <p class="box-text uppercase">Installation</p>
             <h3 class="f-white f-large bold"><?php the_field('instal_title');?></h3>
-            <?php the_field('instal_text');?>
+            <div class="body-text">
+              <?php the_field('instal_text');?>
+            </div>
           </div>
         </div>
 
@@ -186,35 +187,39 @@
       <?php }else{ ?>
         <div class="lay-split lay-split installation__image cover" style="background-image:url('<?php echo $gallery_d_splitImage[0]; ?>');">
       <?php } ?>
-          <a class="round-btn openGallery" href="<?php echo the_field('instal_gallery-link');?>">
-            <i>
-              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-              	 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-              	<path fill="#ffffff" d="M81.5,3.3L4.8,3.4L4.7,80.2h76.8V3.3z M76.6,75.3h-67l0-8.2h67V75.3z M24.5,62.2l7.8-13.3l8.1,9.7
-              		c0.5,0.6,1.4,1,2.2,0.9c0.8-0.1,1.6-0.6,1.9-1.4l7.9-17.4l8.4,21.6H24.5z M76.6,62.2H66L54.8,33.4c-0.4-0.9-1.2-1.5-2.2-1.6
-              		c-1.1,0-1.9,0.5-2.3,1.4l-8.7,19.1l-7.8-9.4c-0.5-0.6-1.3-1-2.1-0.9c-0.8,0.1-1.5,0.5-1.9,1.2l-11,18.8H9.6l0.1-54l67-0.1V62.2z"/>
-              	<path fill="#ffffff" d="M85.8,29.3c-1.3-0.1-2.5,0.9-2.7,2.2c-0.1,1.3,0.9,2.5,2.2,2.7l5.8,0.5l-5.2,56.7l-59.1-5.4
-              		c-1.3-0.1-2.5,0.9-2.7,2.2c-0.1,1.3,0.9,2.5,2.2,2.7l64,5.8l6.1-66.5L85.8,29.3z"/>
-              	<path fill="#ffffff" d="M25.1,34.4c5,0,9-4,9-9s-4-9-9-9s-9,4-9,9S20.2,34.4,25.1,34.4z M25.1,21.4c2.3,0,4.1,1.8,4.1,4.1
-              		s-1.8,4.1-4.1,4.1S21,27.7,21,25.4S22.9,21.4,25.1,21.4z"/>
-              </svg>
-            </i>
-            <p class="uppercase">View Gallery</p>
-          </a>
+
+      <?php if( get_field('instal_gallery-link') ):?>
+        <a class="round-btn openGallery" href="<?php echo the_field('instal_gallery-link');?>">
+          <i>
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+              <path fill="#ffffff" d="M81.5,3.3L4.8,3.4L4.7,80.2h76.8V3.3z M76.6,75.3h-67l0-8.2h67V75.3z M24.5,62.2l7.8-13.3l8.1,9.7
+                c0.5,0.6,1.4,1,2.2,0.9c0.8-0.1,1.6-0.6,1.9-1.4l7.9-17.4l8.4,21.6H24.5z M76.6,62.2H66L54.8,33.4c-0.4-0.9-1.2-1.5-2.2-1.6
+                c-1.1,0-1.9,0.5-2.3,1.4l-8.7,19.1l-7.8-9.4c-0.5-0.6-1.3-1-2.1-0.9c-0.8,0.1-1.5,0.5-1.9,1.2l-11,18.8H9.6l0.1-54l67-0.1V62.2z"/>
+              <path fill="#ffffff" d="M85.8,29.3c-1.3-0.1-2.5,0.9-2.7,2.2c-0.1,1.3,0.9,2.5,2.2,2.7l5.8,0.5l-5.2,56.7l-59.1-5.4
+                c-1.3-0.1-2.5,0.9-2.7,2.2c-0.1,1.3,0.9,2.5,2.2,2.7l64,5.8l6.1-66.5L85.8,29.3z"/>
+              <path fill="#ffffff" d="M25.1,34.4c5,0,9-4,9-9s-4-9-9-9s-9,4-9,9S20.2,34.4,25.1,34.4z M25.1,21.4c2.3,0,4.1,1.8,4.1,4.1
+                s-1.8,4.1-4.1,4.1S21,27.7,21,25.4S22.9,21.4,25.1,21.4z"/>
+            </svg>
+          </i>
+          <p class="uppercase">View Gallery</p>
+        </a>
+      <?php endif;?>
+          
         </div>
     </section><!-- //installation -->
 
-    <section class="products-prices" data-scroll-index="4">
+    <section class="products-prices"  data-scroll-index="4" >
       <div class="wrapper">
 
-        <h3 class="f-large bold">Products & Prices</h3>
+        <h3 class="f-large bold wow fadeIn" data-wow-delay=".3s">Products & Prices</h3>
 
 
         <?php if(have_rows('csp_repeater')): ?>
 
           <section class="products-prices__concrete-sleepers">
 
-            <p class="box-text box-text--blue uppercase"><?php the_field('csp_sub-title');?></p>
+            <p class="box-text box-text--blue uppercase wow fadeIn" data-wow-delay=".3s"><?php the_field('csp_sub-title');?></p>
 
             <div class="products-prices__container">
 
@@ -224,26 +229,33 @@
                   $csPrdIimage = get_sub_field('csp_cs_prd-image');
                 ?>
 
-                <article class="products-prices__product" itemscope itemtype="http://schema.org/Product">
+                <article class="products-prices__product wow fadeIn" data-wow-delay=".3s" itemscope itemtype="http://schema.org/Product">
                   <div class="image">
                     <img src="<?php echo $csPrdIimage['url'];?>" alt="<?php echo $csPrdIimage['alt'];?>" title="<?php echo $csPrdIimage['title'];?>" itemprop="image">
                   </div>
                   <div class="products-prices__product__info">
                     <header>
                       <h4 itemprop="name" class="f-large bold"><?php the_sub_field('csp_cs_prd-name');?></h4>
-                      <p class="material" itemprop="material"><?php the_sub_field('csp_cs_prd-sub-title');?></p>
+                      <div class="material" itemprop="material"><?php the_sub_field('csp_cs_prd-sub-title');?></div>
                       <hr class="thin s-margin">
                     </header>
 
                     <ul>
                       <?php while( have_rows('csp_csr') ): the_row(); ?>
                         <li>
-                          <span class="width" itemprop="width"><?php the_sub_field('csp_cs_prd-width');?>mm</span><span
-                          class="by">x</span><span
-                          class="height" itemprop="height"><?php the_sub_field('csp_cs_prd-height');?>mm</span><span
-                          class="by">x</span><span class="height" itemprop="depth"><?php the_sub_field('csp_cs_prd-depth');?>mm</span><span
-                          class="currency" itemprop="priceCurrency" content="AUD">$</span><span
-                          class="price" itemprop="price" content="<?php the_sub_field('csp_cs_prd-price');?>"><?php the_sub_field('csp_cs_prd-price');?></span><span class="each">ea</span>
+                          <?php if( get_sub_field('csp_cs_prd-width') ): ?>
+                            <span class="width" itemprop="width"><?php the_sub_field('csp_cs_prd-width');?>mm</span>
+                            <span class="by">x</span>
+                          <?php endif; ?>
+                          <?php if( get_sub_field('csp_cs_prd-height') ): ?>
+                            <span class="height" itemprop="height"><?php the_sub_field('csp_cs_prd-height');?>mm</span>
+                          <?php endif; ?>
+                          <?php if( get_sub_field('csp_cs_prd-depth') ): ?>
+                           <span class="by">x</span><span class="height" itemprop="depth"><?php the_sub_field('csp_cs_prd-depth');?>mm</span>
+                          <?php endif; ?>
+                          <?php if( get_sub_field('csp_cs_prd-price') ): ?>
+                            <span class="currency" itemprop="priceCurrency" content="AUD">$</span><span class="price" itemprop="price" content="<?php the_sub_field('csp_cs_prd-price');?>"><?php the_sub_field('csp_cs_prd-price');?></span><span class="each">ea</span>
+                          <?php endif; ?>
                         </li>
                       <?php endwhile; ?>
                     </ul>
@@ -252,6 +264,10 @@
                 </article>
 
               <?php endwhile; ?>
+
+              <?php if( is_page('8') ){ ?>
+                <p class="small-text">** The most consistent characteristic about Sandstone is that its inconsistent. Sandstone will naturally vary in size, texture and colour due to its heritage **</p>
+              <?php } ?>
 
             </div><!--  //products-prices__container --->
 
@@ -281,7 +297,7 @@
                   <div class="wrap">
                 <?php } ?>
 
-                  <article class="products-prices__product lay-split opt1 products-prices__product--<?php echo $counter;?>" itemscope itemtype="http://schema.org/Product">
+                  <article class="products-prices__product wow fadeIn lay-split opt1 products-prices__product--<?php echo $counter;?>" itemscope itemtype="http://schema.org/Product">
                     <div class="image">
                       <img src="<?php echo $cspbPrdIimage['url'];?>" alt="<?php echo $cspbPrdIimage['alt'];?>" title="<?php echo $csPrdIimage['title'];?>" itemprop="image">
                     </div>
@@ -344,9 +360,10 @@
                       <?php endif; ?>
 
                       <?php if($opt2): ?>
+
                         <?php if( have_rows('prd-opt2-repeater') ):?>
 
-                          <div class="products-prices__product__info__container">
+                          <div class="products-prices__product__info__container wow fadeIn">
 
                             <?php while( have_rows('prd-opt2-repeater') ): the_row(); $priceCounter++;?>
 
@@ -362,7 +379,7 @@
                                     <span class="width" itemprop="width"><?php the_sub_field('opt-2_prd-size');?></span>
 
                                     <?php if($price):?>
-                                      <span class="currency" itemprop="priceCurrency" content="AUD">$</span><span class="price" itemprop="price" content="<?php the_sub_field('opt-2_prd-price');?>"><?php the_sub_field('opt-2_prd-price');?></span>
+                                      <span class="currency bold" itemprop="priceCurrency" content="AUD">$</span><span class="price bold" itemprop="price" content="<?php the_sub_field('opt-2_prd-price');?>"><?php the_sub_field('opt-2_prd-price');?></span>
                                     <?php endif; ?>
                                   </article>
 
@@ -371,6 +388,8 @@
                               <?php } ?>
 
                             <?php endwhile; ?>
+
+                            <p class="products-prices__product__info__container__end-para"><?php the_sub_field('prd-opt2_opt-end-para');?></p>
 
                           </div><!-- //option2 -->
 
@@ -403,9 +422,9 @@
     ?>
 
     <?php if(wp_is_mobile()){ ?>
-      <div class="product-contact cover" style="background-image:url('<?php echo $m_contact_image[0]; ?>');">
+      <div class="product-contact wow fadeIn cover" style="background-image:url('<?php echo $m_contact_image[0]; ?>');">
     <?php }else{ ?>
-      <div class="product-contact cover" style="background-image:url('<?php echo $d_contact_image[0]; ?>');">
+      <div class="product-contact wow fadeIn cover" style="background-image:url('<?php echo $d_contact_image[0]; ?>');">
     <?php } ?>
       <div class="wrap">
         <div class="lay-split">

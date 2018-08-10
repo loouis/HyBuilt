@@ -94,7 +94,7 @@
 
 
           h3{
-            margin-top:10px;
+            margin-top:6px;
             margin-bottom:20px;
             color:$bColor;
             font-weight:500;
@@ -129,7 +129,27 @@ body.page-id-8{
       }
     }
   }
+
+  .products-prices__product{
+    .currency, .each{
+      display:none;
+    }
+  }
+
+  .small-text{
+    font-size:13px;
+    margin-top:20px;
+  }
 }
+
+.products-prices__product--7{
+  .price-wrap{
+    .width{
+      width:auto !important;
+    }
+  }
+}
+
 
 .installation{
   position: relative;
@@ -142,9 +162,29 @@ body.page-id-8{
       margin-bottom:20px;
       color:white;
     }
-    p.p1{
-      color:white;
+
+    .body-text{
+      p{
+        margin-bottom:10px;
+      }
     }
+
+    .text{
+      .box-text{
+        color:black;
+      }
+
+      ol{
+        padding:8px 0 20px 14px;
+        li{
+          color:white;
+        }
+      }
+      p.p1, p{
+        color:white;
+      }
+    }
+
 
     a{
       float:left;
@@ -188,6 +228,9 @@ body.page-id-8{
 
   &__concrete-sleepers{
     .products-prices__product__info{
+      strong{
+        font-weight:bold;
+      }
       span.price, span.currency,span.each{
         font-weight:500;
       }
@@ -216,7 +259,10 @@ body.page-id-8{
     .price-wrap{
       @include clearfix;
       float:left;
-      width:130px;
+
+      &:nth-child(2){
+        margin-left:30px;
+      }
     }
   }
 
@@ -224,7 +270,7 @@ body.page-id-8{
     margin-top:40px;
 
     .products-prices__product__info span.width{
-      width: 32px;
+      // width: 32px;
       text-align: right;
     }
 
@@ -270,10 +316,13 @@ body.page-id-8{
       }
 
       p{
-        margin-bottom:20px;
-
+        
         &.material{
-          margin-bottom:0;
+          margin-bottom:20px;
+
+          p{
+            margin-bottom:0;
+          }
         }
 
         &.avail-in{
@@ -310,6 +359,10 @@ body.page-id-8{
 
       &__container{
         display: none;
+
+        & > div{
+          @include clearfix;
+        }
 
         &__end-para{
           float:left;
@@ -505,6 +558,10 @@ body.page-id-8{
           .text{
             padding-left:92px;
 
+            h3{
+              margin-top:12px;
+            }
+
             &:after{
               left:35px;
             }
@@ -524,14 +581,32 @@ body.page-id-8{
     }
 
     &__image{
+      position: static;
       display: block;
       height:100vh;
+      background-size:cover;
+
+
+      &--image{
+        overflow: hidden;
+        
+        .image{
+          position: relative;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+          z-index: -1;
+          background-size:cover;
+        }
+      }
 
       .text{
-        position:relative;
+        position: absolute;
         color:white;
         top:50%;
-        padding:0 15%;
+        padding:0 80px;
+        max-width:600px;
         transform:translateY(-50%);
 
         p{
@@ -601,7 +676,7 @@ body.page-id-8{
             text-transform:uppercase;
             font-weight:bold;
             margin-top:15px;
-            color:white;
+            color:$bColor;
             font-size:13px;
             width:98px;
             line-height: 1.2em;

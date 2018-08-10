@@ -10,7 +10,7 @@ body.page-template-about-us{
 
 .our-services{
   header{
-    padding:5% 0 3% 0;
+    padding:50px 0 20px 0;
 
     h2{
       text-align: center;
@@ -21,24 +21,8 @@ body.page-template-about-us{
 
 .lay-split--our-services{
   position:relative;
-  height:60vh;
-  min-height: 600px;
+  height:300px;
 
-  &:nth-of-type(1){
-    .text{
-      right:0;
-      text-align: right;
-      margin-right:7%;
-    }
-  }
-
-  &:nth-of-type(2){
-    .text{
-      left:0;
-      text-align: left;
-      margin-left:7%;
-    }
-  }
 
   .image{
     top:0;
@@ -50,6 +34,43 @@ body.page-template-about-us{
   .text{
     position: absolute;
     top:50%;
+    padding-left:30px;
     transform:translateY(-50%);
+  }
+}
+
+@include screen(medium){
+
+  .our-services{
+    header{
+      padding:80px 0 40px 0;
+    }
+  }
+
+
+  .lay-split--our-services{
+    height:60vh;
+    min-height: 600px;
+
+    .text{
+      padding-left:0;
+      max-width:360px;
+    }
+
+    &:nth-of-type(1){
+      .text{
+        right:0;
+        text-align: right !important;
+        margin-right:7%;
+      }
+    }
+
+    &:nth-of-type(2){
+      .text{
+        left:0;
+        text-align: left;
+        margin-left:7%;
+      }
+    }
   }
 }

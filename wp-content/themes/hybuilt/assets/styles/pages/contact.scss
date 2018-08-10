@@ -5,7 +5,7 @@
 }
 
 .contact-details{
-  margin-top:40px;
+  margin-top:80px;
 
   .icon-text{
     i svg path{
@@ -17,6 +17,17 @@
     }
   }
 }
+.contact-form{
+  div.wpcf7-response-output{
+    margin-top:100px !important;
+    font-family:$bFont !important;
+
+    p{
+      font-family:$bFont !important;
+    }
+  }
+}
+
 
 .split-content{
   .wrap{
@@ -29,10 +40,11 @@
 }
 
 .contact-form{
+  @include clearfix;
+  position: relative;
   background:#F3F3F3;
-  padding-top:60px;
-  padding-bottom:90px;
-  margin-top:60px;
+  padding:60px 30px 90px 30px;
+  margin-top: 60px;
 
   section{
     .wrap{
@@ -61,7 +73,9 @@
           label{
             display: block;
             span{
-              margin-left:24px;
+              margin-left:36px;
+              padding-top:6px;
+              margin-top:4px;
             }
           }
 
@@ -81,25 +95,28 @@
   .split-content{
 
     .contact-form{
+      padding:60px 15% 90px 15%;
+      margin-top: 0;
+
       section{
         .wrap{
-          width:80%;
+          width:100%;
         }
       }
     }
 
-    &__google-maps{
-      position: fixed;
-      right:0;
-      top:0;
-      z-index: -1;
-      height:100vh;
-      background:#F7F7F7;
+    // &__google-maps{
+    //   position: fixed;
+    //   right:0;
+    //   top:0;
+    //   z-index: -1;
+    //   height:100vh;
+    //   background:#F7F7F7;
 
-      iframe{
-        width: 100%; height: 100%;
-      }
-    }
+    //   iframe{
+    //     width: 100%; height: 100%;
+    //   }
+    // }
     .wrap{
       margin-top:120px;
 

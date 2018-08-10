@@ -9,14 +9,45 @@ input, textarea{
   margin-top:15px;
 }
 
-input[type="submit"]{
+input[type="radio"]{
+  position: relative;
+  background:white;
+  border-radius:50%;
+  width:15px;
+  height:15px;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  box-shadow: 0 0 6px rgba(0,0,0,.1);
+}
 
+
+input[type="radio"]:checked{
   background:$bColor;
+  font-style: bold;
+
+  &:after{
+    content:"";
+    position: absolute;
+    top:8px;
+    left:8px;
+    width:8px;
+    height:8px;
+    background:white;
+    border-radius:50%;
+  }
+}
+
+input[type="submit"], .wpcf7-submit{
+  border: none;
+  outline: none;
+  background:$bColor !important;
   color:white;
   padding:10px 26px;
   font-weight: bold;
   font-size:14px;
   margin-top:25px;
+  -webkit-appearance: none;
 }
 
 textarea{

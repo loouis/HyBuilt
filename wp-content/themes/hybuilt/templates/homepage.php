@@ -15,7 +15,7 @@ get_header(); ?>
       <?php if( wp_is_mobile() ){ ?>
         <div class="image cover" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/images/m_homepage-concrete-sleeper.jpg')"></div>
       <?php }else{ ?>
-        <div class="image cover" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/images/d_homepage-concrete-sleeper.jpg')"></div>
+        <div class="image cover" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/images/d_homepage-concrete-sleeper-2.jpg')"></div>
       <?php } ?>
     </a>
 
@@ -24,11 +24,24 @@ get_header(); ?>
         <h1 class="uppercase f-white f-large boldest f-shadow--dark">Sandstone</h1>
       </div>
       <?php if( wp_is_mobile() ){ ?>
-        <div class="image cover" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/images/m_homepage-sandstone.jpg')"></div>
+        <div class="image cover" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/images/m_homepage_sandstone.jpg')"></div>
       <?php }else{ ?>
-        <div class="image cover" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/images/d_homepage-sandstone.jpg')"></div>
+        <div class="image cover" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/images/d_homepage-sandstone01.jpg')"></div>
       <?php } ?>
     </a>
+
+    <?php /*
+    <a href="<?php echo site_url();?>/modular-wall" class="lay-split lay-split--homepage">
+      <div class="text">
+        <h1 class="uppercase f-white f-large boldest f-shadow--dark">Modular <br/>Wall</h1>
+      </div>
+      <?php if( wp_is_mobile() ){ ?>
+        <div class="image cover" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/images/d_homepage_modular-walls.jpg')"></div>
+      <?php }else{ ?>
+        <div class="image cover" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/images/d_homepage_modular-walls.jpg')"></div>
+      <?php } ?>
+    </a>
+    */ ?>
 
   </div><!-- //website-container -->
 

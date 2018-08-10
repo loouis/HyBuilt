@@ -98,18 +98,6 @@ function html5blank_nav()
 	);
 }
 
-// Load HTML5 Blank scripts (header.php)
-function html5blank_header_scripts()
-{
-    if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-
-        wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js', '1.8.1', true);
-        wp_enqueue_script('jquery');
-
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/assets/js/scripts-min.js', '1.0.0', true); // Custom scripts
-        wp_enqueue_script('html5blankscripts'); // Enqueue it!
-    }
-}
 
 // Load HTML5 Blank conditional scripts
 function html5blank_conditional_scripts()
@@ -123,7 +111,7 @@ function html5blank_conditional_scripts()
 // Load HTML5 Blank styles
 function html5blank_styles()
 {
-    wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
+    wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '3.0', 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
 }
 
@@ -345,13 +333,10 @@ function html5blankcomments($comment, $args, $depth)
 \*------------------------------------*/
 
 // Add Actions
-add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
 add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditional Page Scripts
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
-add_action('init', 'meet_the_estate_agents'); // Add our HTML5 Blank Custom Post Type
-add_action('init', 'properties'); // Add our HTML5 Blank Custom Post Type
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
@@ -442,13 +427,13 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 
 
 // Remove include/jQuery from frontend
-// add_filter( 'wp_enqueue_scripts', 'change_default_jquery', PHP_INT_MAX );
-//
-// function change_default_jquery( ){
-//     wp_dequeue_script( 'jquery');
-//     wp_deregister_script( 'jquery');
-// }
-//
+add_filter( 'wp_enqueue_scripts', 'change_default_jquery', PHP_INT_MAX );
+
+function change_default_jquery( ){
+    wp_dequeue_script( 'jquery');
+    wp_deregister_script( 'jquery');
+}
+
 
 
 add_post_type_support( 'page', 'excerpt' );

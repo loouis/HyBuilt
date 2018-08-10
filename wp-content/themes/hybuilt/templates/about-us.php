@@ -7,13 +7,13 @@
 
     <section class="prd-content">
       <div class="prd-content__desc mobile-wrap lay-split">
-        <section>
+        <section class="wow fadeIn">
           <?php the_content();?>
         </section>
 
         <?php if( have_rows('bptt_repeater') ): ?>
 
-          <section class="prd-content__desc__b-points">
+          <section class="prd-content__desc__b-points wow fadeIn">
 
             <?php while( have_rows('bptt_repeater') ) : the_row();
               $icon = get_sub_field('bptt__icon');
@@ -44,16 +44,18 @@
           $d_aboutImage = wp_get_attachment_image_src($aboutImageId, 'd_split-screen');
         ?>
 
-        <div class="prd-content__image lay-split cover" style="background-image: url('<?php echo $d_aboutImage[0];?>')">
+        <div class="prd-content__image prd-content__image--image lay-split cover">
           <div class="text">
-            <h1 class="f-shadow--dark"><?php the_title();?></h1>
-            <p class="f-shadow--dark f-medium"><?php the_excerpt();?></p>
+            <h1 class="f-shadow--dark wow slideInUp" data-wow-delay=".3s"><?php the_title();?></h1>
+            <p class="f-shadow--dark f-medium wow slideInUp" data-wow-delay=".5s"><?php the_excerpt();?></p>
           </div>
+          <div class="image wow imgScaleIn" style="background-image: url('<?php echo $d_aboutImage[0];?>')"></div>
         </div>
 
       <?php } ?>
     </section><!-- //prd-content -->
 
+    <?php /* Remove Sandstone link
     <section class="our-services">
       <header class="b-grey">
         <h2 class="boldest f-medium">Our Services</h2>
@@ -73,7 +75,7 @@
 
               <a href="<?php the_permalink();?>" class="lay-split lay-split--our-services">
                 <div class="text">
-                  <h1 class="uppercase f-white f-large boldest"><?php the_title();?></h1>
+                  <h1 class="uppercase f-white f-large boldest f-shadow--dark"><?php the_title();?></h1>
                 </div>
                 <?php if( wp_is_mobile() ){ ?>
                   <div class="image cover" style="background-image:url('<?php echo $m_heroImage[0];?>');"></div>
@@ -86,6 +88,7 @@
 
         <?php endif; ?>
     </section>
+    */ ?>
 
   </div><!-- //website-container -->
 </main><!-- //main  -->
